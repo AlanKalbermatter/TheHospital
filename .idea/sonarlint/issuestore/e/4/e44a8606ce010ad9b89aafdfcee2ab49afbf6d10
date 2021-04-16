@@ -1,9 +1,5 @@
 
-F
-java:S1481&"+Remove this unused "nurse1" local variable.(Ãªù™úÿÿÿÿ
-W
-java:S1854"<Remove this useless assignment to local variable "hospital".(æß®¥ÿÿÿÿÿ
-H
-java:S1481"-Remove this unused "hospital" local variable.(æß®¥ÿÿÿÿÿ
-U
-java:S1854&":Remove this useless assignment to local variable "nurse1".(Ãªù™úÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(šÉÀ†8”óªŽ/
+V	java:S125"<This block of commented-out lines of code should be removed.(âÑìÖ8”óªŽ/
+=
+java:S1128""Remove this unused import 'Faker'.(Ï»Íþ8Ã„’ªŽ/
