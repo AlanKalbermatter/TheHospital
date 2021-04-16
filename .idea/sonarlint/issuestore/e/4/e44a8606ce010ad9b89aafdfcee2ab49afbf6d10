@@ -1,0 +1,9 @@
+
+F
+java:S1481&"+Remove this unused "nurse1" local variable.(Ãªù™úÿÿÿÿ
+W
+java:S1854"<Remove this useless assignment to local variable "hospital".(æß®¥ÿÿÿÿÿ
+H
+java:S1481"-Remove this unused "hospital" local variable.(æß®¥ÿÿÿÿÿ
+U
+java:S1854&":Remove this useless assignment to local variable "nurse1".(Ãªù™úÿÿÿÿ
