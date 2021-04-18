@@ -19,3 +19,41 @@
 2021-03-26 09:31:24 INFO  Main:50 - terminal access
 2021-04-11 15:02:35 INFO  Main:47 - terminal access
 2021-04-18 18:29:50 INFO  Main:73 - Number of actual patients in the hospital is: 3
+2021-04-18 18:39:59 INFO  Main:78 - Number of actual patients in the hospital is: 3
+2021-04-18 18:39:59 INFO  MedicineContainer:122 - 10
+2021-04-18 18:39:59 INFO  MedicineContainer:122 - 20
+2021-04-18 18:39:59 INFO  MedicineContainer:122 - 30
+2021-04-18 18:39:59 INFO  MedicineContainer:125 - 40
+2021-04-18 18:39:59 INFO  MedicineContainer:134 - 40
+2021-04-18 18:39:59 INFO  MedicineContainer:134 - 30
+2021-04-18 18:39:59 INFO  MedicineContainer:134 - 20
+2021-04-18 18:39:59 INFO  MedicineContainer:137 - 10
+2021-04-18 18:39:59 INFO  Main:78 - Number of actual patients in the hospital is: 3
+2021-04-18 18:39:59 INFO  MedicineContainer:122 - 10
+2021-04-18 18:39:59 INFO  MedicineContainer:122 - 20
+2021-04-18 18:39:59 INFO  MedicineContainer:122 - 30
+2021-04-18 18:39:59 INFO  MedicineContainer:125 - 40
+2021-04-18 18:39:59 INFO  MedicineContainer:134 - 40
+2021-04-18 18:39:59 INFO  MedicineContainer:134 - 30
+2021-04-18 18:39:59 INFO  MedicineContainer:134 - 20
+2021-04-18 18:39:59 INFO  MedicineContainer:137 - 10
+2021-04-18 21:00:26 ERROR Main:31 - exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
+2021-04-18 21:00:26 INFO  Main:86 - Number of actual patients in the hospital is: 3
+2021-04-18 21:00:26 INFO  MedicineContainer:122 - 10
+2021-04-18 21:00:26 INFO  MedicineContainer:122 - 20
+2021-04-18 21:00:26 INFO  MedicineContainer:122 - 30
+2021-04-18 21:00:26 INFO  MedicineContainer:125 - 40
+2021-04-18 21:00:26 INFO  MedicineContainer:134 - 40
+2021-04-18 21:00:26 INFO  MedicineContainer:134 - 30
+2021-04-18 21:00:26 INFO  MedicineContainer:134 - 20
+2021-04-18 21:00:26 INFO  MedicineContainer:137 - 10
+2021-04-18 21:44:44 ERROR Main:35 - exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
+2021-04-18 21:44:44 INFO  Main:92 - Number of actual patients in the hospital is: 3
+2021-04-18 21:44:44 INFO  MedicineContainer:122 - 10
+2021-04-18 21:44:44 INFO  MedicineContainer:122 - 20
+2021-04-18 21:44:44 INFO  MedicineContainer:122 - 30
+2021-04-18 21:44:44 INFO  MedicineContainer:125 - 40
+2021-04-18 21:44:44 INFO  MedicineContainer:134 - 40
+2021-04-18 21:44:44 INFO  MedicineContainer:134 - 30
+2021-04-18 21:44:44 INFO  MedicineContainer:134 - 20
+2021-04-18 21:44:44 INFO  MedicineContainer:137 - 10
