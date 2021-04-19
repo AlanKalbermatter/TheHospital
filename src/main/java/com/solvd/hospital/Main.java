@@ -2,6 +2,8 @@ package com.solvd.hospital;
 
 import com.solvd.hospital.exceptions.InvalidDoctorSpecialty;
 import com.solvd.hospital.exceptions.NullMedicalHistorySheetException;
+import com.solvd.hospital.exceptions.NurseOperateException;
+import com.solvd.hospital.generics.Appointment;
 import com.solvd.hospital.generics.Prescription;
 import com.solvd.hospital.linkedlist.MedicineContainer;
 import com.solvd.hospital.models.building.Hospital;
@@ -35,13 +37,13 @@ public class Main {
         try {
             doctor.operatePatient();
         }catch(InvalidDoctorSpecialty exception){
-            logger.error(exception);
+            logger.error(exception.getMessage());
         }
         Doctor doctor1 = new Doctor("Bob", "Stuart", 58, 10000004, MALE, "Surgeon", AFTERNOON, 35);
         try{
             doctor1.showMedicalHistory();
         }catch (NullMedicalHistorySheetException exception){
-            logger.error(exception);
+            logger.error(exception.getMessage());
         }
         Doctor doctor2 = new Doctor("Natalea", "Zambone", 39, 10000007, FEMALE  , "Doctor", EVENING, 40);
         doctorList.add(doctor);
@@ -54,6 +56,11 @@ public class Main {
 
         LinkedHashSet<Nurse> nurseList = new LinkedHashSet<>();
         Nurse nurse = new Nurse("Alice", "Ericson", 29, 10000004, FEMALE, 40, "Intensive cares");
+        try {
+            nurse.operatePatient();
+        }catch(NurseOperateException exception){
+            logger.error(exception.getMessage());
+        }
         Nurse nurse1 = new Nurse("Susan", "Gonzales", 33, 10000005, FEMALE, 40, "Elders cares");
         Nurse nurse2 = new Nurse("William", "Fergunson", 27, 10000006, MALE, 40, "Doctor Assistant");
         nurseList.add(nurse);
@@ -69,7 +76,7 @@ public class Main {
         calendar.set(2021,04,18);
         Patient patient1 = new Patient(1,"Fever","Lucas", "Johnson", 34, 555444666, NEUTER, ADULT, HIGH, new Prescription(calendar.getTime(),"Ibuprofen") );
         Patient patient2 = new Patient(2,"Headache","John", "Robinson", 76, 123456789, MALE, ELDER, INTERMEDIATE, new Prescription(calendar.getTime(),"Ibuprofen") );
-        Patient patient3 = new Patient(3,"Stomacache","Maria", "Williams", 14, 555444666, FEMALE, TEENAGER, LOW, new Prescription(calendar.getTime(),"Ibuprofen") );
+        Patient patient3 = new Patient(3,"Stomachache","Maria", "Williams", 14, 555444666, FEMALE, TEENAGER, LOW, new Prescription(calendar.getTime(),"Antibiotic") );
         patientsList.add(patient1);
         patientsList.add(patient2);
         patientsList.add(patient3);
@@ -92,21 +99,16 @@ public class Main {
         hospital.setDoctors(fillDoctorsList());
         hospital.setNurses(fillNursesList());
 
+        //generics implementations
+        calendar.set(2021,05,1);
+        logger.info(new Appointment("Zambone","Johnson",calendar.getTime()).toString());
 
-        //Application of some interface's methods
-        hospital.getDoctors().contains("Robert");
 
 
         logger.info("Number of actual patients in the hospital is: " + hospital.getReception().getPatients().size());
         System.out.println("Number of actual patients in the hospital is: " + hospital.getReception().getPatients().size());
 
 
-        //Implementing generic's classes
-
-
-
-
-        //Assign medicine
         //To go through the linked list, I have simulated a medicine container class
         // where each node is a tablet of pills or something similar,
         // and the route informs you for each tablet how many pills are left

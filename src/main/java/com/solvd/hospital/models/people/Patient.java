@@ -27,8 +27,6 @@ public class Patient
 
     public void setPatientId( int patientId ) { this.patientId = patientId; }
 
-
-
     public String getSymptom() {
         return symptom;
     }

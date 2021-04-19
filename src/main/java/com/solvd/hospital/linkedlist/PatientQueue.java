@@ -1,6 +1,6 @@
 package com.solvd.hospital.linkedlist;
 
-public class PatientList <E> {
+public class PatientQueue<E> {
     class Node{
         public E info;
         Node next;

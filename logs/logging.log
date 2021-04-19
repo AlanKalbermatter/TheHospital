@@ -57,3 +57,63 @@
 2021-04-18 21:44:44 INFO  MedicineContainer:134 - 30
 2021-04-18 21:44:44 INFO  MedicineContainer:134 - 20
 2021-04-18 21:44:44 INFO  MedicineContainer:137 - 10
+2021-04-18 23:41:54 ERROR Main:38 - com.solvd.hospital.exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
+2021-04-18 23:41:54 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patient hasn't got Medical History
+2021-04-18 23:41:54 INFO  Main:100 - Number of actual patients in the hospital is: 3
+2021-04-18 23:41:54 INFO  MedicineContainer:122 - 10
+2021-04-18 23:41:54 INFO  MedicineContainer:122 - 20
+2021-04-18 23:41:54 INFO  MedicineContainer:122 - 30
+2021-04-18 23:41:54 INFO  MedicineContainer:125 - 40
+2021-04-18 23:41:54 INFO  MedicineContainer:134 - 40
+2021-04-18 23:41:54 INFO  MedicineContainer:134 - 30
+2021-04-18 23:41:54 INFO  MedicineContainer:134 - 20
+2021-04-18 23:41:54 INFO  MedicineContainer:137 - 10
+2021-04-18 23:42:24 ERROR Main:38 - com.solvd.hospital.exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
+2021-04-18 23:42:24 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patient hasn't got Medical History
+2021-04-18 23:42:24 INFO  Main:100 - Number of actual patients in the hospital is: 3
+2021-04-18 23:42:24 INFO  MedicineContainer:122 - 10
+2021-04-18 23:42:24 INFO  MedicineContainer:122 - 20
+2021-04-18 23:42:24 INFO  MedicineContainer:122 - 30
+2021-04-18 23:42:24 INFO  MedicineContainer:125 - 40
+2021-04-18 23:42:24 INFO  MedicineContainer:134 - 40
+2021-04-18 23:42:24 INFO  MedicineContainer:134 - 30
+2021-04-18 23:42:24 INFO  MedicineContainer:134 - 20
+2021-04-18 23:42:24 INFO  MedicineContainer:137 - 10
+2021-04-19 00:03:11 ERROR Main:39 - Doctor Deniro not surgeon
+2021-04-19 00:03:11 ERROR Main:45 - This patient hasn't got Medical History
+2021-04-19 00:03:11 ERROR Main:61 - Nurse only can support operation
+2021-04-19 00:03:11 INFO  Main:102 - Number of actual patients in the hospital is: 3
+2021-04-19 00:03:11 INFO  MedicineContainer:122 - 10
+2021-04-19 00:03:11 INFO  MedicineContainer:122 - 20
+2021-04-19 00:03:11 INFO  MedicineContainer:122 - 30
+2021-04-19 00:03:11 INFO  MedicineContainer:125 - 40
+2021-04-19 00:03:11 INFO  MedicineContainer:134 - 40
+2021-04-19 00:03:11 INFO  MedicineContainer:134 - 30
+2021-04-19 00:03:11 INFO  MedicineContainer:134 - 20
+2021-04-19 00:03:11 INFO  MedicineContainer:137 - 10
+2021-04-19 00:14:13 ERROR Main:40 - Doctor Deniro not surgeon
+2021-04-19 00:14:13 ERROR Main:46 - This patient hasn't got Medical History
+2021-04-19 00:14:13 ERROR Main:62 - Nurse only can support operation
+2021-04-19 00:14:13 INFO  Main:104 - com.solvd.hospital.generics.Appointment@6e2c634b
+2021-04-19 00:14:13 INFO  Main:108 - Number of actual patients in the hospital is: 3
+2021-04-19 00:14:13 INFO  MedicineContainer:122 - 10
+2021-04-19 00:14:13 INFO  MedicineContainer:122 - 20
+2021-04-19 00:14:13 INFO  MedicineContainer:122 - 30
+2021-04-19 00:14:13 INFO  MedicineContainer:125 - 40
+2021-04-19 00:14:13 INFO  MedicineContainer:134 - 40
+2021-04-19 00:14:13 INFO  MedicineContainer:134 - 30
+2021-04-19 00:14:13 INFO  MedicineContainer:134 - 20
+2021-04-19 00:14:13 INFO  MedicineContainer:137 - 10
+2021-04-19 00:14:54 ERROR Main:40 - Doctor Deniro not surgeon
+2021-04-19 00:14:54 ERROR Main:46 - This patient hasn't got Medical History
+2021-04-19 00:14:54 ERROR Main:62 - Nurse only can support operation
+2021-04-19 00:14:54 INFO  Main:104 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 00:14:54 ART 2021}
+2021-04-19 00:14:54 INFO  Main:108 - Number of actual patients in the hospital is: 3
+2021-04-19 00:14:54 INFO  MedicineContainer:122 - 10
+2021-04-19 00:14:54 INFO  MedicineContainer:122 - 20
+2021-04-19 00:14:54 INFO  MedicineContainer:122 - 30
+2021-04-19 00:14:54 INFO  MedicineContainer:125 - 40
+2021-04-19 00:14:54 INFO  MedicineContainer:134 - 40
+2021-04-19 00:14:54 INFO  MedicineContainer:134 - 30
+2021-04-19 00:14:54 INFO  MedicineContainer:134 - 20
+2021-04-19 00:14:54 INFO  MedicineContainer:137 - 10

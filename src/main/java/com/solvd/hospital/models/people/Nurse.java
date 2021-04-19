@@ -2,6 +2,8 @@ package com.solvd.hospital.models.people;
 
 
 import com.solvd.hospital.enums.Gender;
+import com.solvd.hospital.exceptions.InvalidMedicineException;
+import com.solvd.hospital.exceptions.NurseOperateException;
 import com.solvd.hospital.interfaces.IHospitalCare;
 
 public class Nurse
@@ -40,12 +42,12 @@ public class Nurse
     }
 
     @Override
-    public void operatePatient() {
-
+    public void operatePatient() throws NurseOperateException {
+        throw new NurseOperateException("Nurse only can support operation");
     }
 
     @Override
-    public void assignMedicine() {
-
+    public void assignMedicine() throws InvalidMedicineException {
+        throw new InvalidMedicineException("Nurses can't assign Medicine");
     }
 }
