@@ -57,52 +57,6 @@ public class MedicineDoublyList<I> {
         }
     }
 
-//    public int extract ( int position ) {
-//        if ( position <= quantity() ) {
-//            int info;
-//            if ( position == 1 ) {
-//                info = origin.info;
-//                origin = origin.next;
-//                if ( origin != null )
-//                    origin.prev = null;
-//            } else {
-//                Node rec;
-//                rec = origin;
-//                for (int i = 1 ; i <= position - 2 ; i++)
-//                    rec = rec.next;
-//                Node prox = rec.next;
-//                rec.next = prox.next;
-//                Node next = prox.next;
-//                if ( next != null )
-//                    next.prev = rec;
-//                info = prox.info;
-//            }
-//            return info;
-//        }
-//        else
-//            return Integer.MAX_VALUE;
-//    }
-
-//    public void delete ( int position ){
-//        if (position <= quantity() ) {
-//            if ( position == 1 ) {
-//                origin = origin.next;
-//                if ( origin != null )
-//                    origin.prev = null;
-//            } else {
-//                Node rec;
-//                rec = origin;
-//                for ( int i = 1 ; i <= position - 2 ; i++ )
-//                    rec = rec.next;
-//                Node prox = rec.next;
-//                prox = prox.next;
-//                rec.next = prox;
-//                if ( prox != null )
-//                    prox.prev = rec;
-//            }
-//        }
-//    }
-
     public void run() {
         Node pos = origin;
         while (pos.next != null) {

@@ -105,12 +105,6 @@ public class Main {
         logger.info("Number of actual patients in the hospital is: " + hospital.getReception().getPatients().size());
         System.out.println("Number of actual patients in the hospital is: " + hospital.getReception().getPatients().size());
 
-
-        //To go through the linked list, I have simulated a medicine container class
-        // where each node is a tablet of pills or something similar,
-        // and the route informs you for each tablet how many pills are left
-
-
         logger.debug("Thanks for using the HOSPITAL Terminal");
     }
 }
