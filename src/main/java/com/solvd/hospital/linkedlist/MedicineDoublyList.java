@@ -2,8 +2,8 @@ package com.solvd.hospital.linkedlist;
 
 import org.apache.log4j.Logger;
 
-public class MedicineContainer {
-    private static final Logger logger = Logger.getLogger(MedicineContainer.class);
+public class MedicineDoublyList {
+    private static final Logger logger = Logger.getLogger(MedicineDoublyList.class);
 
     class Node{
         int info;
@@ -12,7 +12,7 @@ public class MedicineContainer {
 
     private Node origin;
 
-    public MedicineContainer(){
+    public MedicineDoublyList(){
         origin = null;
     }
 

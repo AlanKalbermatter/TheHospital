@@ -1,12 +1,15 @@
 package com.solvd.hospital.linkedlist;
 
 public class PatientQueue<E> {
+
     class Node{
         public E info;
         Node next;
     }
 
     private Node origin;
+
+    public PatientQueue(){ origin = null; }
 
     public void insert(E x){
         Node newbie =  new Node();
@@ -29,6 +32,7 @@ public class PatientQueue<E> {
             return null;
         }
     }
+
     public int counter() {
         int count = 0;
         Node rec = origin;

@@ -5,7 +5,7 @@ import com.solvd.hospital.exceptions.NullMedicalHistorySheetException;
 import com.solvd.hospital.exceptions.NurseOperateException;
 import com.solvd.hospital.generics.Appointment;
 import com.solvd.hospital.generics.Prescription;
-import com.solvd.hospital.linkedlist.MedicineContainer;
+import com.solvd.hospital.linkedlist.MedicineDoublyList;
 import com.solvd.hospital.models.building.Hospital;
 import com.solvd.hospital.models.building.Reception;
 import com.solvd.hospital.models.people.Doctor;
@@ -26,9 +26,7 @@ import static com.solvd.hospital.enums.WorkShifts.*;
 public class Main {
 
     private static final Logger logger = Logger.getLogger(Main.class);
-    static Calendar calendar = Calendar.getInstance();
-
-
+    private static Calendar calendar = Calendar.getInstance();
     private static LinkedHashSet<Doctor> fillDoctorsList() {
 
         LinkedHashSet<Doctor> doctorList = new LinkedHashSet<>();
@@ -112,7 +110,7 @@ public class Main {
         //To go through the linked list, I have simulated a medicine container class
         // where each node is a tablet of pills or something similar,
         // and the route informs you for each tablet how many pills are left
-        MedicineContainer test = new MedicineContainer();
+        MedicineDoublyList test = new MedicineDoublyList();
         test.insert(1, 10);
         test.insert(2, 20);
         test.insert(3, 30);

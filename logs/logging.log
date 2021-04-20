@@ -117,3 +117,29 @@
 2021-04-19 00:14:54 INFO  MedicineContainer:134 - 30
 2021-04-19 00:14:54 INFO  MedicineContainer:134 - 20
 2021-04-19 00:14:54 INFO  MedicineContainer:137 - 10
+2021-04-19 13:24:50 ERROR Main:41 - Doctor Deniro not surgeon
+2021-04-19 13:24:50 ERROR Main:47 - This patient hasn't got Medical History
+2021-04-19 13:24:50 ERROR Main:63 - Nurse only can support operation
+2021-04-19 13:24:50 INFO  Main:105 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 13:24:50 ART 2021}
+2021-04-19 13:24:50 INFO  Main:109 - Number of actual patients in the hospital is: 3
+2021-04-19 13:24:50 INFO  MedicineDoublyList:122 - 10
+2021-04-19 13:24:50 INFO  MedicineDoublyList:122 - 20
+2021-04-19 13:24:50 INFO  MedicineDoublyList:122 - 30
+2021-04-19 13:24:50 INFO  MedicineDoublyList:125 - 40
+2021-04-19 13:24:50 INFO  MedicineDoublyList:134 - 40
+2021-04-19 13:24:50 INFO  MedicineDoublyList:134 - 30
+2021-04-19 13:24:50 INFO  MedicineDoublyList:134 - 20
+2021-04-19 13:24:50 INFO  MedicineDoublyList:137 - 10
+2021-04-20 07:26:56 ERROR Main:38 - Doctor Deniro not surgeon
+2021-04-20 07:26:56 ERROR Main:44 - This patient hasn't got Medical History
+2021-04-20 07:26:56 ERROR Main:60 - Nurse only can support operation
+2021-04-20 07:26:56 INFO  Main:102 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 07:26:56 ART 2021}
+2021-04-20 07:26:56 INFO  Main:106 - Number of actual patients in the hospital is: 3
+2021-04-20 07:26:56 INFO  MedicineDoublyList:122 - 10
+2021-04-20 07:26:56 INFO  MedicineDoublyList:122 - 20
+2021-04-20 07:26:56 INFO  MedicineDoublyList:122 - 30
+2021-04-20 07:26:56 INFO  MedicineDoublyList:125 - 40
+2021-04-20 07:26:56 INFO  MedicineDoublyList:134 - 40
+2021-04-20 07:26:56 INFO  MedicineDoublyList:134 - 30
+2021-04-20 07:26:56 INFO  MedicineDoublyList:134 - 20
+2021-04-20 07:26:56 INFO  MedicineDoublyList:137 - 10
