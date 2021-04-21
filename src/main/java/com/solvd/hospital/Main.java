@@ -5,6 +5,7 @@ import com.solvd.hospital.exceptions.NullMedicalHistorySheetException;
 import com.solvd.hospital.exceptions.NurseOperateException;
 import com.solvd.hospital.generics.Appointment;
 import com.solvd.hospital.generics.Prescription;
+import com.solvd.hospital.linkedlist.MedicineDoublyList;
 import com.solvd.hospital.models.building.Hospital;
 import com.solvd.hospital.models.building.Reception;
 import com.solvd.hospital.models.people.Doctor;
@@ -104,6 +105,18 @@ public class Main {
 
         logger.info("Number of actual patients in the hospital is: " + hospital.getReception().getPatients().size());
         System.out.println("Number of actual patients in the hospital is: " + hospital.getReception().getPatients().size());
+
+
+        //To go through the linked list, I have simulated a medicine container class
+        // where each node is a tablet of pills or something similar,
+        // and the route informs you for each tablet how many pills are left
+        MedicineDoublyList test = new MedicineDoublyList();
+        test.insert(1, 10);
+        test.insert(2, 20);
+        test.insert(3, 30);
+        test.insert(4, 40);
+        test.run();
+        test.reverseRun();
 
         logger.debug("Thanks for using the HOSPITAL Terminal");
     }
