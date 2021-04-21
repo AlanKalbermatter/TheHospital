@@ -1,6 +1,6 @@
 # Project exclude paths
 
-.classpath
-.project
-.factorypath
-.idea
+*.classpath
+*.project
+*.factorypath
+*.idea
