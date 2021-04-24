@@ -6,6 +6,5 @@ public interface IMedicalHistorySheet {
 
     void showMedicalHistory() throws NullMedicalHistorySheetException;
     void updateMedicalHistory() throws NullMedicalHistorySheetException;
-    void createMedicalHistory();
 
 }

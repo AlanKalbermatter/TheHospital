@@ -23,6 +23,7 @@ public class MedicineDoublyList<I> {
             rec = rec.next;
             count++;
         }
+        logger.info(count);
         return count;
     }
 
@@ -60,10 +61,10 @@ public class MedicineDoublyList<I> {
     public void run() {
         Node pos = origin;
         while (pos.next != null) {
-            logger.info(pos.info);
+            logger.info(pos.info.toString());
             pos = pos.next;
         }
-        logger.info(pos.info);
+        logger.info(pos.info.toString());
     }
 
     public void reverseRun() {
@@ -72,11 +73,11 @@ public class MedicineDoublyList<I> {
             pos = pos.next;
         }
         while( pos != origin ) {
-            logger.info(pos.info);
-            System.out.println(pos.info);
+            logger.info(pos.info.toString());
+            System.out.println(pos.info.toString());
             pos = pos.prev;
         }
-        logger.info(pos.info);
-        System.out.println(pos.info);
+        logger.info(pos.info.toString());
+        System.out.println(pos.info.toString());
     }
 }
