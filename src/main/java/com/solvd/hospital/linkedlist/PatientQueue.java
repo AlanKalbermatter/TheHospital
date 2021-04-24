@@ -26,16 +26,6 @@ public class PatientQueue<E> {
         }
     }
 
-    public E extract() {
-        if ( origin != null){
-            E info = origin.info;
-            origin = origin.next;
-            return info;
-        } else {
-            return null;
-        }
-    }
-
     public int counter() {
         int count = 0;
         Node rec = origin;
@@ -43,15 +33,16 @@ public class PatientQueue<E> {
             rec = rec.next;
             count++;
         }
+        logger.info(count);
         return count;
     }
     public void run() {
         PatientQueue.Node pos = origin;
         while (pos.next != null) {
-            logger.info(pos.info);
+            logger.info(pos.info.toString());
             pos = pos.next;
         }
-        logger.info(pos.info);
+        logger.info(pos.info.toString());
     }
 
 }

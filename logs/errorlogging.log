@@ -13,3 +13,6 @@
 2021-04-19 00:14:54 ERROR Main:40 - Doctor Deniro not surgeon
 2021-04-19 00:14:54 ERROR Main:46 - This patient hasn't got Medical History
 2021-04-19 00:14:54 ERROR Main:62 - Nurse only can support operation
+2021-04-21 21:35:11 ERROR Main:37 - Doctor Deniro not surgeon
+2021-04-21 21:35:12 ERROR Main:43 - This patient hasn't got Medical History
+2021-04-21 21:35:12 ERROR Main:59 - Nurse only can support operation

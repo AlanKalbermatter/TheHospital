@@ -30,11 +30,6 @@ public class Surgeon extends Person implements IHospitalCare {
     }
 
     @Override
-    public void treatPatient() {
-        System.out.println("The patient has been cured");
-    }
-
-    @Override
     public void operatePatient() {
         System.out.println("The patient has been operated");
     }

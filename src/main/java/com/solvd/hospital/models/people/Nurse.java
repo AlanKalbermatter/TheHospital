@@ -37,11 +37,6 @@ public class Nurse
     }
 
     @Override
-    public void treatPatient() {
-
-    }
-
-    @Override
     public void operatePatient() throws NurseOperateException {
         throw new NurseOperateException("Nurse only can support operation");
     }

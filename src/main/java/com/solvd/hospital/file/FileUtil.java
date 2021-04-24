@@ -15,7 +15,6 @@ public class FileUtil {
     public static void main(String[] args) {
         File file = new File("/home/kalber/workspace/HospitalModelWithMvn/src/main/resources/text.txt");
         try{
-
             Map<String,Integer> count = new HashMap<>();
             String text = FileUtils.readFileToString(file, "utf-8").toLowerCase();
 
@@ -25,9 +24,9 @@ public class FileUtil {
 
             System.out.println(count);
             logger.info("Quantity of words: " + count);
+
         } catch (IOException exception) {
             logger.error(exception);
         }
-
     }
 }

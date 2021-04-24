@@ -1,0 +1,9 @@
+Lists are commonly found on Web sites.
+These may be lists of, for example, people, drugs, theaters, or
+restaurants. Each list should be clearly introduced and have a descriptive
+title. A list should be formatted so that it can be easily scanned. The
+order of items in the list should be done to maximize user performance,
+which usually means that the most important items are placed toward
+the top of the list. If a numbered list is used, start the numbering
+at ‘one,’ not ‘zero.’ Generally only the first letter of the first word is
+capitalized, unless a word that is usually capitalized is shown in the list.

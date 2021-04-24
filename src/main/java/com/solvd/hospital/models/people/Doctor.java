@@ -61,11 +61,6 @@ public class Doctor
     }
 
     @Override
-    public void treatPatient() {
-        logger.info("The patient has been cured");
-    }
-
-    @Override
     public void operatePatient() throws InvalidDoctorSpecialty {
         if(this.getSpecialty().equals("Surgeon"))
             System.out.println("Patient has been operated");
@@ -87,12 +82,6 @@ public class Doctor
     public void updateMedicalHistory() throws NullMedicalHistorySheetException {
         throw new NullMedicalHistorySheetException("There is nothing to change");
     }
-
-    @Override
-    public void createMedicalHistory() {
-        logger.info("Medical Sheet created successfully");
-    }
-
 
     @Override
     public String toString() {

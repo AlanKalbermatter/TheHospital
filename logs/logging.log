@@ -148,3 +148,202 @@
 2021-04-20 07:35:43 ERROR Main:59 - Nurse only can support operation
 2021-04-20 07:35:43 INFO  Main:101 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 07:35:43 ART 2021}
 2021-04-20 07:35:43 INFO  Main:105 - Number of actual patients in the hospital is: 3
+2021-04-21 21:35:11 ERROR Main:37 - Doctor Deniro not surgeon
+2021-04-21 21:35:12 ERROR Main:43 - This patient hasn't got Medical History
+2021-04-21 21:35:12 ERROR Main:59 - Nurse only can support operation
+2021-04-21 21:35:12 INFO  Main:100 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 21:35:11 ART 2021}
+2021-04-21 21:35:12 INFO  Main:104 - Number of actual patients in the hospital is: 3
+2021-04-21 21:37:36 INFO  MainReflection:18 - Get constructors
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.util.ArrayList(java.util.Collection)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.util.ArrayList()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.util.ArrayList(int)
+2021-04-21 21:37:37 INFO  MainReflection:21 - Get methods
+2021-04-21 21:37:37 INFO  MainReflection:948 - public void java.util.ArrayList.add(int,java.lang.Object)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.add(java.lang.Object)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.remove(java.lang.Object)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.lang.Object java.util.ArrayList.remove(int)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.lang.Object java.util.ArrayList.get(int)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.lang.Object java.util.ArrayList.clone()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public int java.util.ArrayList.indexOf(java.lang.Object)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public void java.util.ArrayList.clear()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.isEmpty()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public int java.util.ArrayList.lastIndexOf(java.lang.Object)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.contains(java.lang.Object)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public void java.util.ArrayList.replaceAll(java.util.function.UnaryOperator)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public int java.util.ArrayList.size()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.util.List java.util.ArrayList.subList(int,int)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.lang.Object[] java.util.ArrayList.toArray()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.lang.Object[] java.util.ArrayList.toArray(java.lang.Object[])
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.util.Iterator java.util.ArrayList.iterator()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.util.Spliterator java.util.ArrayList.spliterator()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.addAll(int,java.util.Collection)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.addAll(java.util.Collection)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public void java.util.ArrayList.forEach(java.util.function.Consumer)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.lang.Object java.util.ArrayList.set(int,java.lang.Object)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public void java.util.ArrayList.ensureCapacity(int)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public void java.util.ArrayList.trimToSize()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.removeAll(java.util.Collection)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.retainAll(java.util.Collection)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.util.ListIterator java.util.ArrayList.listIterator()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.util.ListIterator java.util.ArrayList.listIterator(int)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.ArrayList.removeIf(java.util.function.Predicate)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public void java.util.ArrayList.sort(java.util.Comparator)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.AbstractList.equals(java.lang.Object)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public int java.util.AbstractList.hashCode()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public java.lang.String java.util.AbstractCollection.toString()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public boolean java.util.AbstractCollection.containsAll(java.util.Collection)
+2021-04-21 21:37:37 INFO  MainReflection:948 - public final void java.lang.Object.wait(long,int) throws java.lang.InterruptedException
+2021-04-21 21:37:37 INFO  MainReflection:948 - public final native void java.lang.Object.wait(long) throws java.lang.InterruptedException
+2021-04-21 21:37:37 INFO  MainReflection:948 - public final void java.lang.Object.wait() throws java.lang.InterruptedException
+2021-04-21 21:37:37 INFO  MainReflection:948 - public final native java.lang.Class java.lang.Object.getClass()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public final native void java.lang.Object.notify()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public final native void java.lang.Object.notifyAll()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public default java.util.stream.Stream java.util.Collection.stream()
+2021-04-21 21:37:37 INFO  MainReflection:948 - public default java.util.stream.Stream java.util.Collection.parallelStream()
+2021-04-21 21:37:37 INFO  MainReflection:24 - get implemented interfaces
+2021-04-21 21:37:37 INFO  MainReflection:948 - interface java.util.List
+2021-04-21 21:37:37 INFO  MainReflection:948 - interface java.util.RandomAccess
+2021-04-21 21:37:37 INFO  MainReflection:948 - interface java.lang.Cloneable
+2021-04-21 21:37:37 INFO  MainReflection:948 - interface java.io.Serializable
+2021-04-21 21:37:37 INFO  MainReflection:39 - ArrayList class: class java.util.ArrayList
+2021-04-22 16:54:34 INFO  MainReflection:21 - ### Get implemented Interfaces ###
+2021-04-22 16:54:34 INFO  MainReflection:948 - interface java.util.List
+2021-04-22 16:54:34 INFO  MainReflection:948 - interface java.util.RandomAccess
+2021-04-22 16:54:34 INFO  MainReflection:948 - interface java.lang.Cloneable
+2021-04-22 16:54:34 INFO  MainReflection:948 - interface java.io.Serializable
+2021-04-22 16:54:34 INFO  MainReflection:24 - ### Get Methods ###
+2021-04-22 16:54:34 INFO  MainReflection:948 - public void java.util.ArrayList.add(int,java.lang.Object)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.add(java.lang.Object)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.remove(java.lang.Object)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.lang.Object java.util.ArrayList.remove(int)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.lang.Object java.util.ArrayList.get(int)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.lang.Object java.util.ArrayList.clone()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public int java.util.ArrayList.indexOf(java.lang.Object)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public void java.util.ArrayList.clear()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.isEmpty()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public int java.util.ArrayList.lastIndexOf(java.lang.Object)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.contains(java.lang.Object)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public void java.util.ArrayList.replaceAll(java.util.function.UnaryOperator)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public int java.util.ArrayList.size()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.util.List java.util.ArrayList.subList(int,int)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.lang.Object[] java.util.ArrayList.toArray()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.lang.Object[] java.util.ArrayList.toArray(java.lang.Object[])
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.util.Iterator java.util.ArrayList.iterator()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.util.Spliterator java.util.ArrayList.spliterator()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.addAll(int,java.util.Collection)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.addAll(java.util.Collection)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public void java.util.ArrayList.forEach(java.util.function.Consumer)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.lang.Object java.util.ArrayList.set(int,java.lang.Object)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public void java.util.ArrayList.ensureCapacity(int)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public void java.util.ArrayList.trimToSize()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.removeAll(java.util.Collection)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.retainAll(java.util.Collection)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.util.ListIterator java.util.ArrayList.listIterator()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.util.ListIterator java.util.ArrayList.listIterator(int)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.ArrayList.removeIf(java.util.function.Predicate)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public void java.util.ArrayList.sort(java.util.Comparator)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.AbstractList.equals(java.lang.Object)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public int java.util.AbstractList.hashCode()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.lang.String java.util.AbstractCollection.toString()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public boolean java.util.AbstractCollection.containsAll(java.util.Collection)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public final void java.lang.Object.wait(long,int) throws java.lang.InterruptedException
+2021-04-22 16:54:34 INFO  MainReflection:948 - public final native void java.lang.Object.wait(long) throws java.lang.InterruptedException
+2021-04-22 16:54:34 INFO  MainReflection:948 - public final void java.lang.Object.wait() throws java.lang.InterruptedException
+2021-04-22 16:54:34 INFO  MainReflection:948 - public final native java.lang.Class java.lang.Object.getClass()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public final native void java.lang.Object.notify()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public final native void java.lang.Object.notifyAll()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public default java.util.stream.Stream java.util.Collection.stream()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public default java.util.stream.Stream java.util.Collection.parallelStream()
+2021-04-22 16:54:34 INFO  MainReflection:27 - ### Get Constructors ###
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.util.ArrayList(java.util.Collection)
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.util.ArrayList()
+2021-04-22 16:54:34 INFO  MainReflection:948 - public java.util.ArrayList(int)
+2021-04-22 16:54:34 INFO  MainReflection:42 - ArrayList class: class java.util.ArrayList
+2021-04-22 16:55:47 INFO  MedicineDoublyList:26 - 0
+2021-04-22 16:55:47 INFO  MedicineDoublyList:26 - 1
+2021-04-22 16:55:47 INFO  MedicineDoublyList:26 - 1
+2021-04-22 16:55:47 INFO  MedicineDoublyList:26 - 2
+2021-04-22 16:55:47 INFO  MedicineDoublyList:26 - 2
+2021-04-22 16:55:47 INFO  MedicineDoublyList:26 - 3
+2021-04-22 16:55:47 INFO  MedicineDoublyList:26 - 3
+2021-04-22 16:55:47 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@6e2c634b
+2021-04-22 16:55:47 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@37a71e93
+2021-04-22 16:55:47 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@7e6cbb7a
+2021-04-22 16:55:47 INFO  MedicineDoublyList:67 - com.solvd.hospital.models.Medicine@7c3df479
+2021-04-22 16:55:47 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@7c3df479
+2021-04-22 16:55:47 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@7e6cbb7a
+2021-04-22 16:55:47 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@37a71e93
+2021-04-22 16:55:47 INFO  MedicineDoublyList:80 - com.solvd.hospital.models.Medicine@6e2c634b
+2021-04-22 16:55:47 INFO  MedicineDoublyList:26 - 4
+2021-04-22 16:55:47 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=LOW, prescription=com.solvd.hospital.generics.Prescription@4d405ef7, name='Jose', lastName='Johnson', age=34, ssn=777888999, gender=MALE}
+2021-04-22 16:55:47 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Knee pain', patientAgeGroup=CHILD, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@6193b845, name='Sabrina', lastName='Washington', age=4, ssn=111222333, gender=FEMALE}
+2021-04-22 16:55:47 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Stomachache', patientAgeGroup=ELDER, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@2e817b38, name='Lilia', lastName='Felber', age=80, ssn=444555666, gender=FEMALE}
+2021-04-22 16:55:47 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@c4437c4, name='Martin', lastName='Salomon', age=18, ssn=666555444, gender=NEUTER}
+2021-04-22 16:55:47 INFO  PatientQueue:45 - Patient{patientId=1, symptom='Headache', patientAgeGroup=ADULT, severityOfIlleness=INTERMEDIATE, prescription=com.solvd.hospital.generics.Prescription@433c675d, name='Alan', lastName='Kalber', age=23, ssn=778899444, gender=MALE}
+2021-04-22 16:55:47 INFO  PatientQueue:36 - 5
+2021-04-22 16:59:07 INFO  MedicineDoublyList:26 - 0
+2021-04-22 16:59:07 INFO  MedicineDoublyList:26 - 1
+2021-04-22 16:59:07 INFO  MedicineDoublyList:26 - 1
+2021-04-22 16:59:07 INFO  MedicineDoublyList:26 - 2
+2021-04-22 16:59:07 INFO  MedicineDoublyList:26 - 2
+2021-04-22 16:59:07 INFO  MedicineDoublyList:26 - 3
+2021-04-22 16:59:07 INFO  MedicineDoublyList:26 - 3
+2021-04-22 16:59:07 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@6e2c634b
+2021-04-22 16:59:07 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@37a71e93
+2021-04-22 16:59:07 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@7e6cbb7a
+2021-04-22 16:59:07 INFO  MedicineDoublyList:67 - com.solvd.hospital.models.Medicine@7c3df479
+2021-04-22 16:59:07 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@7c3df479
+2021-04-22 16:59:07 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@7e6cbb7a
+2021-04-22 16:59:07 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@37a71e93
+2021-04-22 16:59:07 INFO  MedicineDoublyList:80 - com.solvd.hospital.models.Medicine@6e2c634b
+2021-04-22 16:59:07 INFO  MedicineDoublyList:26 - 4
+2021-04-22 16:59:07 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=LOW, prescription=com.solvd.hospital.generics.Prescription@300ffa5d, name='Jose', lastName='Johnson', age=34, ssn=777888999, gender=MALE}
+2021-04-22 16:59:07 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Knee pain', patientAgeGroup=CHILD, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@1f17ae12, name='Sabrina', lastName='Washington', age=4, ssn=111222333, gender=FEMALE}
+2021-04-22 16:59:07 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Stomachache', patientAgeGroup=ELDER, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@4d405ef7, name='Lilia', lastName='Felber', age=80, ssn=444555666, gender=FEMALE}
+2021-04-22 16:59:07 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@6193b845, name='Martin', lastName='Salomon', age=18, ssn=666555444, gender=NEUTER}
+2021-04-22 16:59:07 INFO  PatientQueue:45 - Patient{patientId=1, symptom='Headache', patientAgeGroup=ADULT, severityOfIlleness=INTERMEDIATE, prescription=com.solvd.hospital.generics.Prescription@2e817b38, name='Alan', lastName='Kalber', age=23, ssn=778899444, gender=MALE}
+2021-04-22 16:59:07 INFO  PatientQueue:36 - 5
+2021-04-22 16:59:49 INFO  MedicineDoublyList:26 - 0
+2021-04-22 16:59:49 INFO  MedicineDoublyList:26 - 1
+2021-04-22 16:59:49 INFO  MedicineDoublyList:26 - 1
+2021-04-22 16:59:49 INFO  MedicineDoublyList:26 - 2
+2021-04-22 16:59:49 INFO  MedicineDoublyList:26 - 2
+2021-04-22 16:59:49 INFO  MedicineDoublyList:26 - 3
+2021-04-22 16:59:49 INFO  MedicineDoublyList:26 - 3
+2021-04-22 16:59:49 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@49097b5d
+2021-04-22 16:59:49 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@6e2c634b
+2021-04-22 16:59:49 INFO  MedicineDoublyList:64 - com.solvd.hospital.models.Medicine@37a71e93
+2021-04-22 16:59:49 INFO  MedicineDoublyList:67 - com.solvd.hospital.models.Medicine@7e6cbb7a
+2021-04-22 16:59:49 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@7e6cbb7a
+2021-04-22 16:59:49 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@37a71e93
+2021-04-22 16:59:49 INFO  MedicineDoublyList:76 - com.solvd.hospital.models.Medicine@6e2c634b
+2021-04-22 16:59:49 INFO  MedicineDoublyList:80 - com.solvd.hospital.models.Medicine@49097b5d
+2021-04-22 16:59:49 INFO  MedicineDoublyList:26 - 4
+2021-04-22 16:59:49 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=LOW, prescription=com.solvd.hospital.generics.Prescription@76fb509a, name='Jose', lastName='Johnson', age=34, ssn=777888999, gender=MALE}
+2021-04-22 16:59:49 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Knee pain', patientAgeGroup=CHILD, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@300ffa5d, name='Sabrina', lastName='Washington', age=4, ssn=111222333, gender=FEMALE}
+2021-04-22 16:59:49 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Stomachache', patientAgeGroup=ELDER, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@1f17ae12, name='Lilia', lastName='Felber', age=80, ssn=444555666, gender=FEMALE}
+2021-04-22 16:59:49 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@4d405ef7, name='Martin', lastName='Salomon', age=18, ssn=666555444, gender=NEUTER}
+2021-04-22 16:59:49 INFO  PatientQueue:45 - Patient{patientId=1, symptom='Headache', patientAgeGroup=ADULT, severityOfIlleness=INTERMEDIATE, prescription=com.solvd.hospital.generics.Prescription@6193b845, name='Alan', lastName='Kalber', age=23, ssn=778899444, gender=MALE}
+2021-04-22 16:59:49 INFO  PatientQueue:36 - 5
+2021-04-22 17:00:25 INFO  MedicineDoublyList:26 - 0
+2021-04-22 17:00:25 INFO  MedicineDoublyList:26 - 1
+2021-04-22 17:00:25 INFO  MedicineDoublyList:26 - 1
+2021-04-22 17:00:25 INFO  MedicineDoublyList:26 - 2
+2021-04-22 17:00:25 INFO  MedicineDoublyList:26 - 2
+2021-04-22 17:00:25 INFO  MedicineDoublyList:26 - 3
+2021-04-22 17:00:26 INFO  MedicineDoublyList:26 - 3
+2021-04-22 17:00:26 INFO  MedicineDoublyList:64 - Medicine{name='Ibuprofen'}
+2021-04-22 17:00:26 INFO  MedicineDoublyList:64 - Medicine{name='Aspirin'}
+2021-04-22 17:00:26 INFO  MedicineDoublyList:64 - Medicine{name='Antibiotic'}
+2021-04-22 17:00:26 INFO  MedicineDoublyList:67 - Medicine{name='Tylenol'}
+2021-04-22 17:00:26 INFO  MedicineDoublyList:76 - Medicine{name='Tylenol'}
+2021-04-22 17:00:26 INFO  MedicineDoublyList:76 - Medicine{name='Antibiotic'}
+2021-04-22 17:00:26 INFO  MedicineDoublyList:76 - Medicine{name='Aspirin'}
+2021-04-22 17:00:26 INFO  MedicineDoublyList:80 - Medicine{name='Ibuprofen'}
+2021-04-22 17:00:26 INFO  MedicineDoublyList:26 - 4
+2021-04-22 17:00:26 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=LOW, prescription=com.solvd.hospital.generics.Prescription@7c3df479, name='Jose', lastName='Johnson', age=34, ssn=777888999, gender=MALE}
+2021-04-22 17:00:26 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Knee pain', patientAgeGroup=CHILD, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@7106e68e, name='Sabrina', lastName='Washington', age=4, ssn=111222333, gender=FEMALE}
+2021-04-22 17:00:26 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Stomachache', patientAgeGroup=ELDER, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@7eda2dbb, name='Lilia', lastName='Felber', age=80, ssn=444555666, gender=FEMALE}
+2021-04-22 17:00:26 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@6576fe71, name='Martin', lastName='Salomon', age=18, ssn=666555444, gender=NEUTER}
+2021-04-22 17:00:26 INFO  PatientQueue:45 - Patient{patientId=1, symptom='Headache', patientAgeGroup=ADULT, severityOfIlleness=INTERMEDIATE, prescription=com.solvd.hospital.generics.Prescription@76fb509a, name='Alan', lastName='Kalber', age=23, ssn=778899444, gender=MALE}
+2021-04-22 17:00:26 INFO  PatientQueue:36 - 5
