@@ -1,6 +1,7 @@
 package dao.interfaces;
 
-import dao.domain.MedicalChart;
+import dao.domain.MedicalChartDTO;
 
-public interface IMedicalChartDAO extends IEntityDAO<MedicalChart>{
+public interface IMedicalChartDAO extends IEntityDAO<MedicalChartDTO>{
 }
+

@@ -19,7 +19,7 @@ public class Main{
 
         IntStream
                 .range(0,EXEC)
-                .forEach(execution -> {
+                .forEach(e -> {
                                         logger.info("A thread is executing a new RunnableConnection");
                                         connectionsExecutor.execute(new RunnableConnection(count, cp));
                                         count++;

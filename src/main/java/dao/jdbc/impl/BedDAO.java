@@ -1,8 +1,8 @@
 package dao.jdbc.impl;
 
 import dao.connections.DBConnection;
-import dao.domain.PatientDTO;
-import dao.interfaces.IPatientDAO;
+import dao.domain.BedDTO;
+import dao.interfaces.IBedDAO;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -10,25 +10,25 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{
+public class BedDAO extends AbstractJdbcDAO implements IBedDAO {
     private static final Logger logger = Logger.getLogger(PatientDAO.class);
 
     private Connection conn;
 
-    private final static String SQL_INSERT =    "INSERT INTO patient(name, last_name, symptom) VALUES(?, ?, ?)";
-    private final static String SQL_UPDATE =    "UPDATE patient SET name=?, last_name=?, symptom=? WHERE id = ?";
-    private final static String SQL_GET_BY_ID = "SELECT * FROM Patients WHERE id = ?";
-    private final static String SQL_DELETE =    "DELETE FROM Patients WHERE id = ?";
+    private final static String SQL_INSERT =    "INSERT INTO Beds(room_number) VALUES(?)";
+    private final static String SQL_UPDATE =    "UPDATE Beds SET room_number=? WHERE id = ?";
+    private final static String SQL_GET_BY_ID = "SELECT * FROM Beds WHERE id = ?";
+    private final static String SQL_DELETE =    "DELETE FROM Beds WHERE id = ?";
 
-    public PatientDAO(){}
+    public BedDAO(){}
 
-    public PatientDAO(DBConnection conn) throws SQLException {
+    public BedDAO(DBConnection conn) throws SQLException {
         this.conn = conn.getConnection();
     }
 
 
     @Override
-    public void save(PatientDTO patientDTO) throws SQLException {
+    public void save(BedDTO bedDTO) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
@@ -36,10 +36,7 @@ public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{
             //  else get a new connection from the pool
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(SQL_INSERT);
-            ps.setString(1, patientDTO.getName());
-            ps.setString(2, patientDTO.getLastName());
-            ps.setString(3, patientDTO.getSymptom());
-
+            ps.setInt(1, bedDTO.getRoomNumber());
             logger.debug("Query been executed " + SQL_INSERT);
             ps.executeUpdate();
         }finally{
@@ -51,20 +48,18 @@ public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{
     }
 
     @Override
-    public void update(PatientDTO patientDTO) throws SQLException{
+    public void update(BedDTO bedDTO) throws SQLException{
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = DBConnection.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE);
-            ps.setString(1, patientDTO.getName());
-            ps.setString(2, patientDTO.getLastName());
-            ps.setString(3, patientDTO.getSymptom());
-            ps.setLong(4, patientDTO.getId());
+            ps.setInt(1, bedDTO.getRoomNumber());
+            ps.setLong(2, bedDTO.getId());
 
             logger.debug("Query been executed " + SQL_UPDATE);
             ps.executeUpdate();
-            logger.info("The patient "+ patientDTO.toString() + " has been updated");
+            logger.info("The patient "+ bedDTO.toString() + " has been updated");
         }finally{
             if(conn != null)
                 conn.close();
@@ -74,11 +69,11 @@ public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{
     }
 
     @Override
-    public PatientDTO getById(long id) throws SQLException {
+    public BedDTO getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        PatientDTO patientDTO;
+        BedDTO bedDTO;
 
         try {
             conn = DBConnection.getConnection();
@@ -86,13 +81,11 @@ public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{
             logger.debug("Query been executed " + SQL_GET_BY_ID);
             rs = ps.executeQuery();
 
-            patientDTO = new PatientDTO();
-            patientDTO.setId(rs.getLong("id"));
-            patientDTO.setName(rs.getString("name"));
-            patientDTO.setLastName(rs.getString("last_name"));
-            patientDTO.setSymptom(rs.getString("symptom"));
+            bedDTO = new BedDTO();
+            bedDTO.setId(rs.getLong("id"));
+            bedDTO.setRoomNumber(rs.getInt("room_number"));
 
-            logger.info(patientDTO.toString());
+            logger.info(bedDTO.toString());
         }finally{
             if(conn != null)
                 conn.close();
@@ -103,10 +96,10 @@ public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{
 
         }
 
-        return patientDTO;
+        return bedDTO;
     }
     @Override
-    public void delete(PatientDTO patientDTO) throws SQLException{
+    public void delete(BedDTO bedDTO) throws SQLException{
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
 
@@ -115,9 +108,9 @@ public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{
             ps = conn.prepareStatement(SQL_DELETE);
             logger.debug("Query been executed " + SQL_DELETE);
 
-            ps.setLong(1, patientDTO.getId());
+            ps.setLong(1, bedDTO.getId());
             ps.executeUpdate();
-            logger.info(patientDTO.toString() + " deleted");
+            logger.info(bedDTO.toString() + " deleted");
         } finally {
             if(conn != null)
                 conn.close();

@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import dao.domain.Operation;
+import dao.domain.OperationDTO;
 
-public interface IOperationDAO extends IEntityDAO<Operation>{
+public interface IOperationDAO extends IEntityDAO<OperationDTO>{
 }

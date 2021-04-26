@@ -1,0 +1,1094 @@
+[1mdiff --git a/logs/logging.log b/logs/logging.log[m
+[1mindex 919d53d..7d89266 100644[m
+[1m--- a/logs/logging.log[m
+[1m+++ b/logs/logging.log[m
+[36m@@ -148,3 +148,25 @@[m
+ 2021-04-20 07:35:43 ERROR Main:59 - Nurse only can support operation[m
+ 2021-04-20 07:35:43 INFO  Main:101 - Appointment{doctor=Zambone, patientDTO=Johnson, date=Tue Jun 01 07:35:43 ART 2021}[m
+ 2021-04-20 07:35:43 INFO  Main:105 - Number of actual patients in the hospital is: 3[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 0[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 1[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 1[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 2[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 2[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 3[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 3[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:64 - Medicine{name='Ibuprofen'}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:64 - Medicine{name='Aspirin'}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:64 - Medicine{name='Antibiotic'}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:67 - Medicine{name='Tylenol'}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:76 - Medicine{name='Tylenol'}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:76 - Medicine{name='Antibiotic'}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:76 - Medicine{name='Aspirin'}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:80 - Medicine{name='Ibuprofen'}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 4[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=LOW, prescription=com.solvd.hospital.generics.Prescription@1f17ae12, name='Jose', lastName='Johnson', age=34, ssn=777888999, gender=MALE}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Knee pain', patientAgeGroup=CHILD, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@4d405ef7, name='Sabrina', lastName='Washington', age=4, ssn=111222333, gender=FEMALE}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Stomachache', patientAgeGroup=ELDER, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@6193b845, name='Lilia', lastName='Felber', age=80, ssn=444555666, gender=FEMALE}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  PatientQueue:42 - Patient{patientId=1, symptom='Fever', patientAgeGroup=ADULT, severityOfIlleness=HIGH, prescription=com.solvd.hospital.generics.Prescription@2e817b38, name='Martin', lastName='Salomon', age=18, ssn=666555444, gender=NEUTER}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  PatientQueue:45 - Patient{patientId=1, symptom='Headache', patientAgeGroup=ADULT, severityOfIlleness=INTERMEDIATE, prescription=com.solvd.hospital.generics.Prescription@c4437c4, name='Alan', lastName='Kalber', age=23, ssn=778899444, gender=MALE}[m
+[32m+[m[32m2021-04-28 09:31:14 INFO  PatientQueue:36 - 5[m
+[1mdiff --git a/pom.xml b/pom.xml[m
+[1mindex 119490f..2346291 100644[m
+[1m--- a/pom.xml[m
+[1m+++ b/pom.xml[m
+[36m@@ -43,16 +43,19 @@[m
+             <artifactId>commons-io</artifactId>[m
+             <version>2.8.0</version>[m
+         </dependency>[m
+[32m+[m
+         <dependency>[m
+             <groupId>commons-cli</groupId>[m
+             <artifactId>commons-cli</artifactId>[m
+             <version>1.4</version>[m
+         </dependency>[m
+[32m+[m
+         <dependency>[m
+             <groupId>org.apache.commons</groupId>[m
+             <artifactId>commons-dbcp2</artifactId>[m
+             <version>LATEST</version>[m
+         </dependency>[m
+[32m+[m
+         <dependency>[m
+             <groupId>mysql</groupId>[m
+             <artifactId>mysql-connector-java</artifactId>[m
+[1mdiff --git a/src/main/java/dao/MainJDBC.java b/src/main/java/dao/MainJDBC.java[m
+[1mindex 9813132..544bcb8 100644[m
+[1m--- a/src/main/java/dao/MainJDBC.java[m
+[1m+++ b/src/main/java/dao/MainJDBC.java[m
+[36m@@ -1,13 +1,24 @@[m
+ package dao;[m
+ [m
+[32m+[m[32mimport dao.connections.DBConnection;[m
+ import org.apache.log4j.Logger;[m
+ import org.apache.log4j.PropertyConfigurator;[m
+[32m+[m[32mimport java.sql.*;[m
+[32m+[m
+[32m+[m[32mimport java.sql.SQLException;[m
+ [m
+ public class MainJDBC {[m
+     private static final Logger logger = Logger.getLogger(MainJDBC.class);[m
+ [m
+[31m-    public static void main(String[] args) {[m
+[32m+[m[32m    public static void main(String[] args) throws SQLException {[m
+         PropertyConfigurator.configure("/home/kalber/workspace/HospitalModelWithMvn/src/main/resources/log4j2.properties");[m
+[32m+[m[32m        DBConnection conn = null;[m
+[32m+[m[32m        try {[m
+[32m+[m[32m            conn = DBConnection.getConnection();[m
+[32m+[m[32m            if (conn.getAutoCommit()) {[m
+[32m+[m[32m                conn.setAutoCommit(false);[m
+[32m+[m[32m            }[m
+ [m
+[32m+[m[32m            logger.info(conn);[m
+     }[m
+ }[m
+[1mdiff --git a/src/main/java/dao/connections/DBConnection.java b/src/main/java/dao/connections/DBConnection.java[m
+[1mindex 5740f05..304c582 100644[m
+[1m--- a/src/main/java/dao/connections/DBConnection.java[m
+[1m+++ b/src/main/java/dao/connections/DBConnection.java[m
+[36m@@ -1,27 +1,33 @@[m
+ package dao.connections;[m
+ [m
+[32m+[m[32mimport dao.MainJDBC;[m
+ import org.apache.commons.dbcp2.BasicDataSource;[m
+[32m+[m[32mimport org.apache.log4j.Logger;[m
+[32m+[m
+ import javax.sql.DataSource;[m
+ import java.sql.*;[m
+ [m
+[31m-public class Connection {[m
+[32m+[m[32mpublic class DBConnection {[m
+[32m+[m
+[32m+[m[32m    private static final Logger logger = Logger.getLogger(MainJDBC.class);[m
+[32m+[m
+     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/mydb?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";[m
+     private static final String JDBC_USER = "root";[m
+     private static final String JDBC_PASS = "root";[m
+     private static BasicDataSource dataSource;[m
+[32m+[m
+     public static DataSource getDataSource(){[m
+[31m-        dataSource = null;[m
+         if (dataSource == null) {[m
+[32m+[m[32m            dataSource = new BasicDataSource();[m
+             dataSource.setUrl(JDBC_URL);[m
+             dataSource.setUsername(JDBC_USER);[m
+             dataSource.setPassword(JDBC_PASS);[m
+[31m-            //define the size of the poolConnection[m
+             dataSource.setInitialSize(5);[m
+         }[m
+         return dataSource;[m
+     }[m
+ [m
+[31m-    public static java.sql.Connection getConnection() throws SQLException {[m
+[32m+[m[32m    public static Connection getConnection() throws SQLException {[m
+         return getDataSource().getConnection();[m
+     }[m
+ [m
+[36m@@ -30,6 +36,7 @@[m [mpublic class Connection {[m
+             rs.close();[m
+         } catch (SQLException exception) {[m
+             exception.printStackTrace();[m
+[32m+[m[32m            logger.error(exception);[m
+         }[m
+     }[m
+ [m
+[36m@@ -38,6 +45,7 @@[m [mpublic class Connection {[m
+             ps.close();[m
+         } catch (SQLException exception) {[m
+             exception.printStackTrace();[m
+[32m+[m[32m            logger.error(exception);[m
+         }[m
+     }[m
+ [m
+[36m@@ -46,6 +54,7 @@[m [mpublic class Connection {[m
+             conn.close();[m
+         } catch (SQLException exception) {[m
+             exception.printStackTrace();[m
+[32m+[m[32m            logger.error(exception);[m
+         }[m
+     }[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/src/main/java/dao/domain/Appointment.java b/src/main/java/dao/domain/Appointment.java[m
+[1mindex 7234a02..7490952 100644[m
+[1m--- a/src/main/java/dao/domain/Appointment.java[m
+[1m+++ b/src/main/java/dao/domain/Appointment.java[m
+[36m@@ -2,13 +2,11 @@[m [mpackage dao.domain;[m
+ [m
+ import java.sql.Date;[m
+ [m
+[31m-public class Appointment {[m
+[31m-    private long id;[m
+[32m+[m[32mpublic class Appointment extends BaseModel{[m
+     private Date date;[m
+[32m+[m[32m    private MedicalStaff medicalStaffDTO;[m
+[32m+[m[32m    private Patient patientDTO;[m
+ [m
+[31m-    public void setId(long id) {[m
+[31m-        this.id = id;[m
+[31m-    }[m
+ [m
+     public Date getDate() {[m
+         return date;[m
+[36m@@ -18,11 +16,28 @@[m [mpublic class Appointment {[m
+         this.date = date;[m
+     }[m
+ [m
+[32m+[m[32m    public MedicalStaff getMedicalStaff() {[m
+[32m+[m[32m        return medicalStaffDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setMedicalStaff(MedicalStaff medicalStaffDTO) {[m
+[32m+[m[32m        this.medicalStaffDTO = medicalStaffDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Patient getPatient() {[m
+[32m+[m[32m        return patientDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setPatient(Patient patientDTO) {[m
+[32m+[m[32m        this.patientDTO = patientDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+     @Override[m
+     public String toString() {[m
+[31m-        return "Appointments{" +[m
+[31m-                "id=" + id +[m
+[31m-                ", date=" + date +[m
+[32m+[m[32m        return "Appointment{" +[m
+[32m+[m[32m                "date=" + date +[m
+[32m+[m[32m                ", MedicalStaff=" + medicalStaffDTO.toString() +[m
+[32m+[m[32m                ", patientDTO=" + patientDTO +[m
+                 '}';[m
+     }[m
+ }[m
+[1mdiff --git a/src/main/java/dao/domain/BaseModel.java b/src/main/java/dao/domain/BaseModel.java[m
+[1mindex f5766c1..6f489fd 100644[m
+[1m--- a/src/main/java/dao/domain/BaseModel.java[m
+[1m+++ b/src/main/java/dao/domain/BaseModel.java[m
+[36m@@ -1,2 +1,17 @@[m
+[31m-package dao.domain;public class BaseModel {[m
+[32m+[m[32mpackage dao.domain;[m
+[32m+[m
+[32m+[m[32mpublic abstract class BaseModel {[m
+[32m+[m[32m    private long id;[m
+[32m+[m
+[32m+[m[32m    public BaseModel(){}[m
+[32m+[m
+[32m+[m[32m    public BaseModel(long id){[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public long getId() {return id;}[m
+[32m+[m
+[32m+[m[32m    public void setId(long id){[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/src/main/java/dao/domain/Bed.java b/src/main/java/dao/domain/Bed.java[m
+[1mindex a80429b..98c6caa 100644[m
+[1m--- a/src/main/java/dao/domain/Bed.java[m
+[1m+++ b/src/main/java/dao/domain/Bed.java[m
+[36m@@ -1,15 +1,12 @@[m
+ package dao.domain;[m
+ [m
+[31m-public class Bed {[m
+[31m-    private long id;[m
+[32m+[m[32mpublic class Bed extends BaseModel{[m
+     private int roomNumber;[m
+[32m+[m[32m    private Patient patientDTO;[m
+ [m
+[31m-    public Bed(int roomNumber){[m
+[32m+[m[32m    public Bed(int roomNumber, Patient patientDTO){[m
+         this.roomNumber = roomNumber;[m
+[31m-    }[m
+[31m-[m
+[31m-    public long getId() {[m
+[31m-        return id;[m
+[32m+[m[32m        this.patientDTO = patientDTO;[m
+     }[m
+ [m
+     public int getRoomNumber() {[m
+[36m@@ -20,11 +17,19 @@[m [mpublic class Bed {[m
+         this.roomNumber = roomNumber;[m
+     }[m
+ [m
+[32m+[m[32m    public Patient getPatient() {[m
+[32m+[m[32m        return patientDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setPatient(Patient patientDTO) {[m
+[32m+[m[32m        this.patientDTO = patientDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+     @Override[m
+     public String toString() {[m
+         return "Bed{" +[m
+[31m-                "id=" + id +[m
+[31m-                ", roomNumber=" + roomNumber +[m
+[32m+[m[32m                "roomNumber=" + roomNumber +[m
+[32m+[m[32m                ", patientDTO=" + patientDTO +[m
+                 '}';[m
+     }[m
+ }[m
+[1mdiff --git a/src/main/java/dao/domain/MedicalStaff.java b/src/main/java/dao/domain/MedicalStaff.java[m
+[1mindex 699137e..2352a6b 100644[m
+[1m--- a/src/main/java/dao/domain/MedicalStaff.java[m
+[1m+++ b/src/main/java/dao/domain/MedicalStaff.java[m
+[36m@@ -1,2 +1,48 @@[m
+[31m-package dao.domain;public class MedicalStaff {[m
+[32m+[m[32mpackage dao.domain;[m
+[32m+[m
+[32m+[m[32mpublic class MedicalStaff extends BaseModel{[m
+[32m+[m[32m    private String name;[m
+[32m+[m[32m    private String specialty;[m
+[32m+[m[32m    private Position positionDTO;[m
+[32m+[m
+[32m+[m[32m    public MedicalStaff(){}[m
+[32m+[m
+[32m+[m[32m    public MedicalStaff(String name, String specialty, Position positionDTO){[m
+[32m+[m[32m        this.name = name;[m
+[32m+[m[32m        this.specialty = specialty;[m
+[32m+[m[32m        this.positionDTO = positionDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getName() {[m
+[32m+[m[32m        return name;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setName(String name) {[m
+[32m+[m[32m        this.name = name;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getSpecialty() {[m
+[32m+[m[32m        return specialty;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setSpecialty(String specialty) {[m
+[32m+[m[32m        this.specialty = specialty;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public Position getPosition() {[m
+[32m+[m[32m        return positionDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setPosition(Position positionDTO) {[m
+[32m+[m[32m        this.positionDTO = positionDTO;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public String toString() {[m
+[32m+[m[32m        return "MedicalStaff{" +[m
+[32m+[m[32m                "name='" + name + '\'' +[m
+[32m+[m[32m                ", specialty='" + specialty + '\'' +[m
+[32m+[m[32m                ", positionDTO=" + positionDTO +[m
+[32m+[m[32m                '}';[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/src/main/java/dao/domain/Operation.java b/src/main/java/dao/domain/Operation.java[m
+[1mindex 4515af1..9d94684 100644[m
+[1m--- a/src/main/java/dao/domain/Operation.java[m
+[1m+++ b/src/main/java/dao/domain/Operation.java[m
+[36m@@ -18,6 +18,10 @@[m [mpublic class Operation {[m
+         return id;[m
+     }[m
+ [m
+[32m+[m[32m    public void setId(long id) {[m
+[32m+[m[32m        this.id = id;[m
+[32m+[m[32m    }[m
+[32m+[m
+     public Date getDate() {[m
+         return date;[m
+     }[m
+[1mdiff --git a/src/main/java/dao/domain/Position.java b/src/main/java/dao/domain/Position.java[m
+[1mindex ebd7220..5b56d26 100644[m
+[1m--- a/src/main/java/dao/domain/Position.java[m
+[1m+++ b/src/main/java/dao/domain/Position.java[m
+[36m@@ -1,2 +1,24 @@[m
+[31m-package dao.domain;public enum Position {[m
+[32m+[m[32mpackage dao.domain;[m
+[32m+[m
+[32m+[m[32mpublic enum Position {[m
+[32m+[m[32m    NURSE("Nurse"),[m
+[32m+[m[32m    DOCTOR("Doctor"),[m
+[32m+[m[32m    PEDIATRICIAN("Pediatrician"),[m
+[32m+[m[32m    SURGEON("Surgeon");[m
+[32m+[m
+[32m+[m[32m    private String positionName;[m
+[32m+[m
+[32m+[m[32m    Position(){}[m
+[32m+[m
+[32m+[m[32m    Position(String positionName){[m
+[32m+[m[32m        this.positionName = positionName;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getPositionName() {[m
+[32m+[m[32m        return positionName;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setPositionName(String positionName) {[m
+[32m+[m[32m        this.positionName = positionName;[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/src/main/java/dao/interfaces/IDoctorDAO.java b/src/main/java/dao/interfaces/IDoctorDAO.java[m
+[1mindex b10d2ad..860fbeb 100644[m
+[1m--- a/src/main/java/dao/interfaces/IDoctorDAO.java[m
+[1m+++ b/src/main/java/dao/interfaces/IDoctorDAO.java[m
+[36m@@ -1,6 +1,4 @@[m
+ package dao.interfaces;[m
+ [m
+[31m-import dao.domain.Doctor;[m
+[31m-[m
+ public interface IDoctorDAO extends IEntityDAO<Doctor>{[m
+ }[m
+[1mdiff --git a/src/main/java/dao/jdbc/impl/AbstractJdbcDAO.java b/src/main/java/dao/jdbc/impl/AbstractJdbcDAO.java[m
+[1mindex a8d95bf..30a1233 100644[m
+[1m--- a/src/main/java/dao/jdbc/impl/AbstractJdbcDAO.java[m
+[1m+++ b/src/main/java/dao/jdbc/impl/AbstractJdbcDAO.java[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-package dao.jdbc;[m
+[32m+[m[32mpackage dao.jdbc.impl;[m
+ [m
+ import com.solvd.hospital.connections.ConnectionPool;[m
+ [m
+[1mdiff --git a/src/main/java/dao/jdbc/impl/OperationDAO.java b/src/main/java/dao/jdbc/impl/OperationDAO.java[m
+[1mindex d6ab150..8ef124b 100644[m
+[1m--- a/src/main/java/dao/jdbc/impl/OperationDAO.java[m
+[1m+++ b/src/main/java/dao/jdbc/impl/OperationDAO.java[m
+[36m@@ -1,12 +1,10 @@[m
+ package dao.jdbc.impl;[m
+ [m
+[31m-import dao.connections.Connections;[m
+[32m+[m[32mimport dao.connections.DBConnection;[m
+ import dao.domain.OperationDTO;[m
+ import dao.interfaces.IOperationDAO;[m
+[31m-import dao.jdbc.AbstractJdbcDAO;[m
+ import org.apache.log4j.Logger;[m
+ [m
+[31m-import java.sql.Connection;[m
+ import java.sql.PreparedStatement;[m
+ import java.sql.ResultSet;[m
+ import java.sql.SQLException;[m
+[36m@@ -14,7 +12,7 @@[m [mimport java.sql.SQLException;[m
+ public class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{[m
+     private static final Logger logger = Logger.getLogger(OperationDAO.class);[m
+ [m
+[31m-    private Connection transactionalConnection;[m
+[32m+[m[32m    private java.sql.Connection conn;[m
+ [m
+     private final static String SQL_INSERT =    "INSERT INTO patientDTO(name, last_name, symptom) VALUES(?, ?, ?)";[m
+     private final static String SQL_UPDATE =    "UPDATE patientDTO SET name=?, last_name=?, symptom=? WHERE id = ?";[m
+[36m@@ -23,18 +21,16 @@[m [mpublic class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{[m
+ [m
+     public OperationDAO() {}[m
+ [m
+[31m-    public OperationDAO(Connection transactionalConnection){[m
+[31m-        this.transactionalConnection = transactionalConnection;[m
+[32m+[m[32m    public OperationDAO(java.sql.Connection conn){[m
+[32m+[m[32m        this.conn = conn;[m
+     }[m
+ [m
+     @Override[m
+     public void save(Operation operationDTO) throws SQLException {[m
+[31m-        Connection conn = null;[m
+[32m+[m[32m        java.sql.Connection conn = null;[m
+         PreparedStatement ps = null;[m
+         try {[m
+[31m-            //  if the object of transactionalConnection is different of null, then utilize transactionalConnection,[m
+[31m-            //  else get a new connection from the pool[m
+[31m-            conn = this.transactionalConnection != null ? this.transactionalConnection : Connections.getConnection();[m
+[32m+[m[32m            conn = DBConnection.getConnection();[m
+             ps = conn.prepareStatement(SQL_INSERT);[m
+             ps.setDate(1, operationDTO.getDate());[m
+             ps.setString(2, operationDTO.getReason());[m
+[36m@@ -42,8 +38,8 @@[m [mpublic class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{[m
+             logger.debug("Query been executed " + SQL_INSERT);[m
+             ps.executeUpdate();[m
+         }finally{[m
+[31m-            if(this.transactionalConnection == null)[m
+[31m-                Connections.close(conn);[m
+[32m+[m[32m            if(conn != null)[m
+[32m+[m[32m                conn.close();[m
+             if(ps != null)[m
+                 ps.close();[m
+         }[m
+[36m@@ -51,10 +47,10 @@[m [mpublic class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{[m
+ [m
+     @Override[m
+     public void update(Operation operationDTO) throws SQLException{[m
+[31m-        Connection conn = null;[m
+[32m+[m[32m        java.sql.Connection conn = null;[m
+         PreparedStatement ps = null;[m
+         try {[m
+[31m-            conn = this.transactionalConnection != null ? this.transactionalConnection : Connections.getConnection();[m
+[32m+[m[32m            conn = DBConnection.getConnection();[m
+             ps = conn.prepareStatement(SQL_UPDATE);[m
+             ps.setDate(1,operationDTO.getDate());[m
+             ps.setString(2, operationDTO.getReason());[m
+[36m@@ -64,8 +60,8 @@[m [mpublic class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{[m
+             logger.debug("Query been executed " + SQL_UPDATE);[m
+             ps.executeUpdate();[m
+         }finally{[m
+[31m-            if(this.transactionalConnection == null)[m
+[31m-                Connections.close(conn);[m
+[32m+[m[32m            if(conn != null)[m
+[32m+[m[32m                conn.close();[m
+             if(ps != null)[m
+                 ps.close();[m
+         }[m
+[36m@@ -73,13 +69,13 @@[m [mpublic class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{[m
+ [m
+     @Override[m
+     public Operation getById(long id) throws SQLException {[m
+[31m-        Connection conn = null;[m
+[32m+[m[32m        java.sql.Connection conn = null;[m
+         PreparedStatement ps = null;[m
+         ResultSet rs = null;[m
+         Operation operationDTO;[m
+ [m
+         try {[m
+[31m-            conn = this.transactionalConnection != null ? this.transactionalConnection : Connections.getConnection();[m
+[32m+[m[32m            conn = DBConnection.getConnection();[m
+             ps = conn.prepareStatement(SQL_GET_BY_ID);[m
+             logger.debug("Query been executed " + SQL_GET_BY_ID);[m
+             rs = ps.executeQuery();[m
+[36m@@ -87,13 +83,12 @@[m [mpublic class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{[m
+             operationDTO = new Operation();[m
+             operationDTO.setId(rs.getLong("id"));[m
+             operationDTO.setDate(rs.getDate("date"));[m
+[31m-            operationDTO.setLastName(rs.getString("last_name"));[m
+[31m-            operationDTO.setSymptom(rs.getString("symptom"));[m
+[32m+[m[32m            operationDTO.setReason(rs.getString("reason"));[m
+ [m
+             logger.info(operationDTO.toString());[m
+         }finally{[m
+[31m-            if (this.transactionalConnection == null)[m
+[31m-                Connections.close(conn);[m
+[32m+[m[32m            if (conn != null)[m
+[32m+[m[32m                conn.close();[m
+             if (ps != null)[m
+                 ps.close();[m
+             if (rs != null)[m
+[36m@@ -101,24 +96,24 @@[m [mpublic class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{[m
+ [m
+         }[m
+ [m
+[31m-        return patientDTO;[m
+[32m+[m[32m        return operationDTO;[m
+     }[m
+     @Override[m
+     public void delete(Operation operationDTO) throws SQLException{[m
+[31m-        Connection conn = null;[m
+[32m+[m[32m        java.sql.Connection conn = null;[m
+         PreparedStatement ps = null;[m
+ [m
+         try {[m
+[31m-            conn = this.transactionalConnection != null ? this.transactionalConnection : Connections.getConnection();[m
+[32m+[m[32m            conn = DBConnection.getConnection();[m
+             ps = conn.prepareStatement(SQL_DELETE);[m
+             logger.debug("Query been executed " + SQL_DELETE);[m
+ [m
+[32m+[m[32m            logger.info(operationDTO.toString() + " deleted");[m
+             ps.setLong(1, operationDTO.getId());[m
+             ps.executeUpdate();[m
+[31m-            logger.info(operationDTO.toString() + " deleted");[m
+         } finally {[m
+[31m-            if(this.transactionalConnection == null)[m
+[31m-                Connections.close(conn);[m
+[32m+[m[32m            if(conn != null)[m
+[32m+[m[32m                conn.close();[m
+             if(ps != null)[m
+                 ps.close();[m
+         }[m
+[1mdiff --git a/src/main/java/dao/jdbc/impl/PatientDAO.java b/src/main/java/dao/jdbc/impl/PatientDAO.java[m
+[1mindex f80150f..5f25783 100644[m
+[1m--- a/src/main/java/dao/jdbc/impl/PatientDAO.java[m
+[1m+++ b/src/main/java/dao/jdbc/impl/PatientDAO.java[m
+[36m@@ -1,12 +1,10 @@[m
+ package dao.jdbc.impl;[m
+ [m
+[31m-import dao.connections.Connections;[m
+[32m+[m[32mimport dao.connections.DBConnection;[m
+ import dao.domain.PatientDTO;[m
+ import dao.interfaces.IPatientDAO;[m
+[31m-import dao.jdbc.AbstractJdbcDAO;[m
+ import org.apache.log4j.Logger;[m
+ [m
+[31m-import java.sql.Connection;[m
+ import java.sql.PreparedStatement;[m
+ import java.sql.ResultSet;[m
+ import java.sql.SQLException;[m
+[36m@@ -14,7 +12,7 @@[m [mimport java.sql.SQLException;[m
+ public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+     private static final Logger logger = Logger.getLogger(PatientDAO.class);[m
+ [m
+[31m-    private Connection transactionalConnection;[m
+[32m+[m[32m    private java.sql.Connection transactionalConnection;[m
+ [m
+     private final static String SQL_INSERT =    "INSERT INTO patientDTO(name, last_name, symptom) VALUES(?, ?, ?)";[m
+     private final static String SQL_UPDATE =    "UPDATE patientDTO SET name=?, last_name=?, symptom=? WHERE id = ?";[m
+[36m@@ -23,18 +21,18 @@[m [mpublic class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+ [m
+     public PatientDAO(){}[m
+ [m
+[31m-    public PatientDAO(Connection transactionalConnection){[m
+[32m+[m[32m    public PatientDAO(java.sql.Connection transactionalConnection){[m
+         this.transactionalConnection = transactionalConnection;[m
+     }[m
+ [m
+     @Override[m
+     public void save(Patient patientDTO) throws SQLException {[m
+[31m-        Connection conn = null;[m
+[32m+[m[32m        java.sql.Connection conn = null;[m
+         PreparedStatement ps = null;[m
+         try {[m
+             //  if the object of transactionalConnection is different of null, then utilize transactionalConnection,[m
+             //  else get a new connection from the pool[m
+[31m-            conn = this.transactionalConnection != null ? this.transactionalConnection : Connections.getConnection();[m
+[32m+[m[32m            conn = this.transactionalConnection != null ? this.transactionalConnection : DBConnection.getConnection();[m
+             ps = conn.prepareStatement(SQL_INSERT);[m
+             ps.setString(1,patientDTO.getName());[m
+             ps.setString(2,patientDTO.getLastName());[m
+[36m@@ -44,7 +42,7 @@[m [mpublic class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+             ps.executeUpdate();[m
+         }finally{[m
+             if(this.transactionalConnection == null)[m
+[31m-                Connections.close(conn);[m
+[32m+[m[32m                DBConnection.close(conn);[m
+             if(ps != null)[m
+                 ps.close();[m
+         }[m
+[36m@@ -52,10 +50,10 @@[m [mpublic class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+ [m
+     @Override[m
+     public void update(Patient patientDTO) throws SQLException{[m
+[31m-        Connection conn = null;[m
+[32m+[m[32m        java.sql.Connection conn = null;[m
+         PreparedStatement ps = null;[m
+         try {[m
+[31m-            conn = this.transactionalConnection != null ? this.transactionalConnection : Connections.getConnection();[m
+[32m+[m[32m            conn = this.transactionalConnection != null ? this.transactionalConnection : DBConnection.getConnection();[m
+             ps = conn.prepareStatement(SQL_UPDATE);[m
+             ps.setString(1,patientDTO.getName());[m
+             ps.setString(2,patientDTO.getLastName());[m
+[36m@@ -67,7 +65,7 @@[m [mpublic class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+             logger.info("The patientDTO "+ patientDTO.toString() + " has been updated");[m
+         }finally{[m
+             if(this.transactionalConnection == null)[m
+[31m-                Connections.close(conn);[m
+[32m+[m[32m                DBConnection.close(conn);[m
+             if(ps != null)[m
+                 ps.close();[m
+         }[m
+[36m@@ -75,13 +73,13 @@[m [mpublic class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+ [m
+     @Override[m
+     public Patient getById(long id) throws SQLException {[m
+[31m-        Connection conn = null;[m
+[32m+[m[32m        java.sql.Connection conn = null;[m
+         PreparedStatement ps = null;[m
+         ResultSet rs = null;[m
+         Patient patientDTO;[m
+ [m
+         try {[m
+[31m-            conn = this.transactionalConnection != null ? this.transactionalConnection : Connections.getConnection();[m
+[32m+[m[32m            conn = this.transactionalConnection != null ? this.transactionalConnection : DBConnection.getConnection();[m
+             ps = conn.prepareStatement(SQL_GET_BY_ID);[m
+             logger.debug("Query been executed " + SQL_GET_BY_ID);[m
+             rs = ps.executeQuery();[m
+[36m@@ -95,7 +93,7 @@[m [mpublic class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+             logger.info(patientDTO.toString());[m
+         }finally{[m
+             if (this.transactionalConnection == null)[m
+[31m-                Connections.close(conn);[m
+[32m+[m[32m                DBConnection.close(conn);[m
+             if (ps != null)[m
+                 ps.close();[m
+             if (rs != null)[m
+[36m@@ -107,11 +105,11 @@[m [mpublic class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+     }[m
+     @Override[m
+     public void delete(Patient patientDTO) throws SQLException{[m
+[31m-        Connection conn = null;[m
+[32m+[m[32m        java.sql.Connection conn = null;[m
+         PreparedStatement ps = null;[m
+ [m
+         try {[m
+[31m-            conn = this.transactionalConnection != null ? this.transactionalConnection : Connections.getConnection();[m
+[32m+[m[32m            conn = this.transactionalConnection != null ? this.transactionalConnection : DBConnection.getConnection();[m
+             ps = conn.prepareStatement(SQL_DELETE);[m
+             logger.debug("Query been executed " + SQL_DELETE);[m
+ [m
+[36m@@ -120,7 +118,7 @@[m [mpublic class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{[m
+             logger.info(patientDTO.toString() + " deleted");[m
+         } finally {[m
+             if(this.transactionalConnection == null)[m
+[31m-                Connections.close(conn);[m
+[32m+[m[32m                DBConnection.close(conn);[m
+             if(ps != null)[m
+                 ps.close();[m
+         }[m
+[1mdiff --git a/src/main/resources/db/HospitalDDL.sql b/src/main/resources/db/HospitalDDL.sql[m
+[1mindex ab85d97..de65ca9 100644[m
+[1m--- a/src/main/resources/db/HospitalDDL.sql[m
+[1m+++ b/src/main/resources/db/HospitalDDL.sql[m
+[36m@@ -6,18 +6,24 @@[m [mSET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N[m
+ [m
+ -- -----------------------------------------------------[m
+ -- Schema mydb[m
+[32m+[m
+ -- -----------------------------------------------------[m
+ [m
+ -- -----------------------------------------------------[m
+ -- Schema mydb[m
+[32m+[m
+ -- -----------------------------------------------------[m
+[31m-CREATE SCHEMA IF NOT EXISTS `mydb` ;[m
+[31m-USE `mydb` ;[m
+[32m+[m[32mCREATE SCHEMA IF NOT EXISTS `mydb[m
+[32m+[m[32m` ;[m
+[32m+[m[32mUSE `mydb[m
+[32m+[m[32m` ;[m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Events`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Events`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Events` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Events` ([m
+   `id` INT NOT NULL,[m
+   `reason` VARCHAR(255) NULL,[m
+   PRIMARY KEY (`id`))[m
+[36m@@ -25,20 +31,11 @@[m [mENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Nurses`[m
+[31m--- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Nurses` ([m
+[31m-  `id` INT NOT NULL AUTO_INCREMENT,[m
+[31m-  `name` VARCHAR(45) NULL,[m
+[31m-  `specialty` VARCHAR(45) NULL,[m
+[31m-  PRIMARY KEY (`id`))[m
+[31m-ENGINE = InnoDB;[m
+[31m-[m
+[31m-[m
+[31m--- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Medical_Insurances`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Medical_Insurances`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Medical_Insurances` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Medical_Insurances` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `partner_name` VARCHAR(45) NOT NULL,[m
+   `ssn` INT NOT NULL,[m
+[36m@@ -47,42 +44,41 @@[m [mENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Patients`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Patients`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Patients` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Patients` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `name` VARCHAR(45) NULL,[m
+   `last_name` VARCHAR(45) NULL,[m
+   `symtom` VARCHAR(45) NULL,[m
+   `events_id` INT NOT NULL,[m
+[31m-  `nurses_id` INT NOT NULL,[m
+[31m-  `Medical_Insurances_id` INT NOT NULL,[m
+[32m+[m[32m  `medical_Insurances_id` INT NOT NULL,[m
+   PRIMARY KEY (`id`),[m
+   INDEX `fk_Patients_Events1_idx` (`events_id` ASC) VISIBLE,[m
+[31m-  INDEX `fk_Patients_Nurses1_idx` (`nurses_id` ASC) VISIBLE,[m
+[31m-  INDEX `fk_Patients_Medical_Insurances1_idx` (`Medical_Insurances_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_Patients_Medical_Insurances1_idx` (`medical_Insurances_id` ASC) VISIBLE,[m
+   CONSTRAINT `fk_Patients_Events1`[m
+     FOREIGN KEY (`events_id`)[m
+[31m-    REFERENCES `mydb`.`Events` (`id`)[m
+[31m-    ON DELETE NO ACTION[m
+[31m-    ON UPDATE NO ACTION,[m
+[31m-  CONSTRAINT `fk_Patients_Nurses1`[m
+[31m-    FOREIGN KEY (`nurses_id`)[m
+[31m-    REFERENCES `mydb`.`Nurses` (`id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Events` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION,[m
+   CONSTRAINT `fk_Patients_Medical_Insurances1`[m
+[31m-    FOREIGN KEY (`Medical_Insurances_id`)[m
+[31m-    REFERENCES `mydb`.`Medical_Insurances` (`id`)[m
+[32m+[m[32m    FOREIGN KEY (`medical_Insurances_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Medical_Insurances` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Prescriptions`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Prescriptions`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Prescriptions` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Prescriptions` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `details` VARCHAR(255) NOT NULL,[m
+   PRIMARY KEY (`id`))[m
+[36m@@ -90,202 +86,207 @@[m [mENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Medicines`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Medicines`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Medicines` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Medicines` ([m
+   `id_medicine` INT NOT NULL AUTO_INCREMENT,[m
+   `name` VARCHAR(45) NULL,[m
+[31m-  `Prescriptions_id` INT NOT NULL,[m
+[32m+[m[32m  `prescriptions_id` INT NOT NULL,[m
+   PRIMARY KEY (`id_medicine`),[m
+[31m-  INDEX `fk_Medicines_Prescriptions1_idx` (`Prescriptions_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_Medicines_Prescriptions1_idx` (`prescriptions_id` ASC) VISIBLE,[m
+   CONSTRAINT `fk_Medicines_Prescriptions1`[m
+[31m-    FOREIGN KEY (`Prescriptions_id`)[m
+[31m-    REFERENCES `mydb`.`Prescriptions` (`id`)[m
+[32m+[m[32m    FOREIGN KEY (`prescriptions_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Prescriptions` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Doctors`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Medical_staff`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Doctors` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Medical_staff` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `name` VARCHAR(45) NULL,[m
+   `specialty` VARCHAR(45) NULL,[m
+[32m+[m[32m  `positionDTO` VARCHAR(45) NULL,[m
+   PRIMARY KEY (`id`))[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Appointments`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Appointments`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Appointments` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Appointments` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `date` DATE NULL,[m
+[31m-  `Patients_id` INT NOT NULL,[m
+[31m-  `Doctors_id` INT NOT NULL,[m
+[32m+[m[32m  `patients_id` INT NOT NULL,[m
+[32m+[m[32m  `medical_staff_id` INT NOT NULL,[m
+   PRIMARY KEY (`id`),[m
+[31m-  INDEX `fk_Appointments_Patients1_idx` (`Patients_id` ASC) VISIBLE,[m
+[31m-  INDEX `fk_Appointments_Doctors1_idx` (`Doctors_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_Appointments_Patients1_idx` (`patients_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_Appointments_MedicalStaff1_idx` (`medical_staff_id` ASC) VISIBLE,[m
+   CONSTRAINT `fk_Appointments_Patients1`[m
+[31m-    FOREIGN KEY (`Patients_id`)[m
+[31m-    REFERENCES `mydb`.`Patients` (`id`)[m
+[32m+[m[32m    FOREIGN KEY (`patients_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Patients` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION,[m
+[31m-  CONSTRAINT `fk_Appointments_Doctors1`[m
+[31m-    FOREIGN KEY (`Doctors_id`)[m
+[31m-    REFERENCES `mydb`.`Doctors` (`id`)[m
+[32m+[m[32m  CONSTRAINT `fk_Appointments_MedicalStaff1`[m
+[32m+[m[32m    FOREIGN KEY (`medical_staff_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Medical_staff` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Surgeons`[m
+[31m--- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Surgeons` ([m
+[31m-  `id` INT NOT NULL AUTO_INCREMENT,[m
+[31m-  `name` VARCHAR(45) NULL,[m
+[31m-  `last_name` VARCHAR(45) NULL,[m
+[31m-  PRIMARY KEY (`id`))[m
+[31m-ENGINE = InnoDB;[m
+[31m-[m
+[31m-[m
+[31m--- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Operations`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Operations`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Operations` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Operations` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `date` DATE NULL,[m
+   `reason` VARCHAR(45) NOT NULL,[m
+[31m-  `Surgeons_id` INT NOT NULL,[m
+[31m-  `Patients_id` INT NOT NULL,[m
+[32m+[m[32m  `patients_id` INT NOT NULL,[m
+[32m+[m[32m  `medical_staff_id` INT NOT NULL,[m
+   PRIMARY KEY (`id`),[m
+[31m-  INDEX `fk_Operations_Surgeons1_idx` (`Surgeons_id` ASC) VISIBLE,[m
+[31m-  INDEX `fk_Operations_Patients1_idx` (`Patients_id` ASC) VISIBLE,[m
+[31m-  CONSTRAINT `fk_Operations_Surgeons1`[m
+[31m-    FOREIGN KEY (`Surgeons_id`)[m
+[31m-    REFERENCES `mydb`.`Surgeons` (`id`)[m
+[32m+[m[32m  INDEX `fk_Operations_Patients1_idx` (`patients_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_Operations_MedicalStaff1_idx` (`medical_staff_id` ASC) VISIBLE,[m
+[32m+[m[32m  CONSTRAINT `fk_Operations_Patients1`[m
+[32m+[m[32m    FOREIGN KEY (`patients_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Patients` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION,[m
+[31m-  CONSTRAINT `fk_Operations_Patients1`[m
+[31m-    FOREIGN KEY (`Patients_id`)[m
+[31m-    REFERENCES `mydb`.`Patients` (`id`)[m
+[32m+[m[32m  CONSTRAINT `fk_Operations_MedicalStaff1`[m
+[32m+[m[32m    FOREIGN KEY (`medical_staff_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Medical_staff` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Beds`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Beds`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Beds` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Beds` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `room_number` INT NOT NULL,[m
+[31m-  `Patients_id` INT NOT NULL,[m
+[32m+[m[32m  `patients_id` INT NOT NULL,[m
+   PRIMARY KEY (`id`),[m
+[31m-  INDEX `fk_Beds_Patients1_idx` (`Patients_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_Beds_Patients1_idx` (`patients_id` ASC) VISIBLE,[m
+   CONSTRAINT `fk_Beds_Patients1`[m
+[31m-    FOREIGN KEY (`Patients_id`)[m
+[31m-    REFERENCES `mydb`.`Patients` (`id`)[m
+[32m+[m[32m    FOREIGN KEY (`patients_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Patients` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Appointment_type`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Appointment_type`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Appointment_type` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Appointment_type` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `description` VARCHAR(255) NULL,[m
+[31m-  `Appointments_id` INT NOT NULL,[m
+[32m+[m[32m  `appointments_id` INT NOT NULL,[m
+   PRIMARY KEY (`id`),[m
+[31m-  INDEX `fk_Appointment_type_Appointments1_idx` (`Appointments_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_Appointment_type_Appointments1_idx` (`appointments_id` ASC) VISIBLE,[m
+   CONSTRAINT `fk_Appointment_type_Appointments1`[m
+[31m-    FOREIGN KEY (`Appointments_id`)[m
+[31m-    REFERENCES `mydb`.`Appointments` (`id`)[m
+[32m+[m[32m    FOREIGN KEY (`appointments_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Appointments` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Medical_Charts`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Medical_Charts`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Medical_Charts` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Medical_Charts` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   `history` VARCHAR(255) NULL,[m
+[31m-  `Patients_id` INT NOT NULL,[m
+[32m+[m[32m  `patients_id` INT NOT NULL,[m
+   PRIMARY KEY (`id`),[m
+[31m-  INDEX `fk_HistorySheets_Patients1_idx` (`Patients_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_HistorySheets_Patients1_idx` (`patients_id` ASC) VISIBLE,[m
+   CONSTRAINT `fk_HistorySheets_Patients1`[m
+[31m-    FOREIGN KEY (`Patients_id`)[m
+[31m-    REFERENCES `mydb`.`Patients` (`id`)[m
+[32m+[m[32m    FOREIGN KEY (`patients_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Patients` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Intern_student`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Intern_student`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Intern_student` ([m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Intern_student` ([m
+   `id` INT NOT NULL AUTO_INCREMENT,[m
+   PRIMARY KEY (`id`))[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Intern_students`[m
+[31m--- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Intern_students` ([m
+[31m-  `id` INT NOT NULL,[m
+[31m-  `name` VARCHAR(45) NULL,[m
+[31m-  `last_name` VARCHAR(45) NULL,[m
+[31m-  `specialty` VARCHAR(45) NULL,[m
+[31m-  PRIMARY KEY (`id`))[m
+[31m-ENGINE = InnoDB;[m
+[31m-[m
+[31m-[m
+[31m--- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Supervition_Charts`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Prescriptions_orders`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Supervition_Charts` ([m
+[31m-  `Intern_student_id` INT NOT NULL,[m
+[31m-  `Doctors_id` INT NOT NULL,[m
+[31m-  INDEX `fk_supervises_Intern_student1_idx` (`Intern_student_id` ASC) VISIBLE,[m
+[31m-  INDEX `fk_supervises_Doctors1_idx` (`Doctors_id` ASC) VISIBLE,[m
+[31m-  CONSTRAINT `fk_supervises_Intern_student1`[m
+[31m-    FOREIGN KEY (`Intern_student_id`)[m
+[31m-    REFERENCES `mydb`.`Intern_students` (`id`)[m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Prescriptions_orders` ([m
+[32m+[m[32m  `prescriptions_id` INT NOT NULL,[m
+[32m+[m[32m  `medical_staff_id` INT NOT NULL,[m
+[32m+[m[32m  INDEX `fk_Prescriptions_orders_Prescriptions1_idx` (`prescriptions_id` ASC) VISIBLE,[m
+[32m+[m[32m  INDEX `fk_Prescriptions_orders_MedicalStaff14_idx` (`medical_staff_id` ASC) VISIBLE,[m
+[32m+[m[32m  CONSTRAINT `fk_Prescriptions_orders_Prescriptions1`[m
+[32m+[m[32m    FOREIGN KEY (`prescriptions_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Prescriptions` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION,[m
+[31m-  CONSTRAINT `fk_supervises_Doctors1`[m
+[31m-    FOREIGN KEY (`Doctors_id`)[m
+[31m-    REFERENCES `mydb`.`Doctors` (`id`)[m
+[32m+[m[32m  CONSTRAINT `fk_Prescriptions_orders_MedicalStaff1`[m
+[32m+[m[32m    FOREIGN KEY (`medical_staff_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Medical_staff` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
+ [m
+ [m
+ -- -----------------------------------------------------[m
+[31m--- Table `mydb`.`Prescriptions_orders`[m
+[32m+[m[32m-- Table `mydb[m
+[32m+[m[32m`.`Positions_types`[m
+ -- -----------------------------------------------------[m
+[31m-CREATE TABLE IF NOT EXISTS `mydb`.`Prescriptions_orders` ([m
+[31m-  `doctors_id` INT NOT NULL,[m
+[31m-  `prescriptions_id` INT NOT NULL,[m
+[31m-  INDEX `fk_Prescriptions_orders_Doctors1_idx` (`doctors_id` ASC) VISIBLE,[m
+[31m-  INDEX `fk_Prescriptions_orders_Prescriptions1_idx` (`prescriptions_id` ASC) VISIBLE,[m
+[31m-  CONSTRAINT `fk_Prescriptions_orders_Doctors1`[m
+[31m-    FOREIGN KEY (`doctors_id`)[m
+[31m-    REFERENCES `mydb`.`Doctors` (`id`)[m
+[31m-    ON DELETE NO ACTION[m
+[31m-    ON UPDATE NO ACTION,[m
+[31m-  CONSTRAINT `fk_Prescriptions_orders_Prescriptions1`[m
+[31m-    FOREIGN KEY (`prescriptions_id`)[m
+[31m-    REFERENCES `mydb`.`Prescriptions` (`id`)[m
+[32m+[m[32mCREATE TABLE IF NOT EXISTS `mydb[m
+[32m+[m[32m`.`Positions_types` ([m
+[32m+[m[32m  `id` INT NOT NULL AUTO_INCREMENT,[m
+[32m+[m[32m  `postion_description` VARCHAR(45) NULL,[m
+[32m+[m[32m  `medical_staff_id` INT NOT NULL,[m
+[32m+[m[32m  PRIMARY KEY (`id`),[m
+[32m+[m[32m  INDEX `fk_Positions_types_MedicalStaff1_idx` (`medical_staff_id` ASC) VISIBLE,[m
+[32m+[m[32m  CONSTRAINT `fk_Positions_types_MedicalStaff1`[m
+[32m+[m[32m    FOREIGN KEY (`medical_staff_id`)[m
+[32m+[m[32m    REFERENCES `mydb[m
+[32m+[m[32m    `.`Medical_staff` (`id`)[m
+     ON DELETE NO ACTION[m
+     ON UPDATE NO ACTION)[m
+ ENGINE = InnoDB;[m
