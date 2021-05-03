@@ -1,6 +1,8 @@
-package dao.domain;
+package dao.domain.misc;
 
-public class PrescriptionDTO extends BaseModel{
+import dao.domain.BaseModel;
+
+public class PrescriptionDTO extends BaseModel {
 
     private String details;
 

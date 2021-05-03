@@ -1,4 +1,4 @@
-package dao.domain;
+package dao.domain.misc;
 
 public enum AppointmentTypeDTO {
     ROUTINE_APPOINTMENT("This is a routine appointment"),

@@ -1,4 +1,4 @@
-package dao.domain;
+package dao.domain.people;
 
 public class PatientDTO {
     private long id;

@@ -1,7 +1,7 @@
 package dao.jdbc.impl;
 
 import dao.connections.DBConnection;
-import dao.domain.PrescriptionDTO;
+import dao.domain.misc.PrescriptionDTO;
 import dao.interfaces.IPrescriptionDAO;
 import org.apache.log4j.Logger;
 

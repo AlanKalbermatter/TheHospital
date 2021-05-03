@@ -1,7 +1,7 @@
 package dao.jdbc.impl;
 
 import dao.connections.DBConnection;
-import dao.domain.MedicalInsuranceDTO;
+import dao.domain.misc.MedicalInsuranceDTO;
 import dao.interfaces.IMedicalInsuranceDAO;
 import org.apache.log4j.Logger;
 

@@ -1,4 +1,4 @@
-package dao.domain;
+package dao.domain.misc;
 
 public enum PositionDTO {
     NURSE("Nurse"),

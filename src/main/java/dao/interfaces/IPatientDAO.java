@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import dao.domain.PatientDTO;
+import dao.domain.people.PatientDTO;
 
 public interface IPatientDAO extends IEntityDAO<PatientDTO>{
 

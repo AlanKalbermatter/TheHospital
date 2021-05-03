@@ -1,17 +1,13 @@
-package dao.domain;
+package dao.domain.drugs;
 
 public class MedicineDTO {
-    private long id;
     private String name;
+    private double price;
 
     public MedicineDTO(){}
 
     public MedicineDTO(String name){
         this.name = name;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getName() {
@@ -22,11 +18,19 @@ public class MedicineDTO {
         this.name = name;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
-        return "Medicine{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "MedicineDTO{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
                 '}';
     }
 }

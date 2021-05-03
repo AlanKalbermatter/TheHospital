@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import dao.domain.BedDTO;
+import dao.domain.misc.BedDTO;
 
 public interface IBedDAO extends IEntityDAO<BedDTO>{
 

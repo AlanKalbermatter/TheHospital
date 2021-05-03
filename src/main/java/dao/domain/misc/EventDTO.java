@@ -1,6 +1,8 @@
-package dao.domain;
+package dao.domain.misc;
 
-public class EventDTO extends BaseModel{
+import dao.domain.BaseModel;
+
+public class EventDTO extends BaseModel {
     private String reason;
 
     public EventDTO(){}

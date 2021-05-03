@@ -400,7 +400,7 @@
  [m
 [31m-import dao.connections.Connections;[m
 [32m+[m[32mimport dao.connections.DBConnection;[m
- import dao.domain.OperationDTO;[m
+ import dao.domain.misc.OperationDTO;[m
  import dao.interfaces.IOperationDAO;[m
 [31m-import dao.jdbc.AbstractJdbcDAO;[m
  import org.apache.log4j.Logger;[m
@@ -549,7 +549,7 @@
  [m
 [31m-import dao.connections.Connections;[m
 [32m+[m[32mimport dao.connections.DBConnection;[m
- import dao.domain.PatientDTO;[m
+ import dao.domain.people.PatientDTO;[m
  import dao.interfaces.IPatientDAO;[m
 [31m-import dao.jdbc.AbstractJdbcDAO;[m
  import org.apache.log4j.Logger;[m

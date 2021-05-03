@@ -1,7 +1,7 @@
 package dao.jdbc.impl;
 
 import dao.connections.DBConnection;
-import dao.domain.OperationDTO;
+import dao.domain.misc.OperationDTO;
 import dao.interfaces.IOperationDAO;
 import org.apache.log4j.Logger;
 

@@ -1,6 +1,8 @@
-package dao.domain;
+package dao.domain.misc;
 
-public class MedicalInsuranceDTO extends BaseModel{
+import dao.domain.BaseModel;
+
+public class MedicalInsuranceDTO extends BaseModel {
     private String partnerName;
     private int ssn;
 

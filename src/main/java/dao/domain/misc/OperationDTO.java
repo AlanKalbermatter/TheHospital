@@ -1,4 +1,4 @@
-package dao.domain;
+package dao.domain.misc;
 
 import java.sql.Date;
 

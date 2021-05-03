@@ -1,6 +1,9 @@
-package dao.domain;
+package dao.domain.misc;
 
-public class BedDTO extends BaseModel{
+import dao.domain.BaseModel;
+import dao.domain.people.PatientDTO;
+
+public class BedDTO extends BaseModel {
     private int roomNumber;
     private PatientDTO patientDTO;
 

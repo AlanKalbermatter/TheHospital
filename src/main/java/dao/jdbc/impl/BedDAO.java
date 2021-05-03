@@ -1,7 +1,7 @@
 package dao.jdbc.impl;
 
 import dao.connections.DBConnection;
-import dao.domain.BedDTO;
+import dao.domain.misc.BedDTO;
 import dao.interfaces.IBedDAO;
 import org.apache.log4j.Logger;
 

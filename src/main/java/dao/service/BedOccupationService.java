@@ -1,6 +1,6 @@
 package dao.service;
 
-import dao.domain.BedDTO;
+import dao.domain.misc.BedDTO;
 import dao.jdbc.impl.AbstractJdbcDAO;
 import dao.jdbc.impl.BedDAO;
 

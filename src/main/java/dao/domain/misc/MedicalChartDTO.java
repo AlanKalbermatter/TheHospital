@@ -1,6 +1,8 @@
-package dao.domain;
+package dao.domain.misc;
 
-public class MedicalChartDTO extends BaseModel{
+import dao.domain.BaseModel;
+
+public class MedicalChartDTO extends BaseModel {
     private String history;
 
     public MedicalChartDTO(){}

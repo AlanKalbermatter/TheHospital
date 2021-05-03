@@ -1,8 +1,12 @@
-package dao.domain;
+package dao.domain.misc;
+
+import dao.domain.BaseModel;
+import dao.domain.people.MedicalStaffDTO;
+import dao.domain.people.PatientDTO;
 
 import java.sql.Date;
 
-public class AppointmentDTO extends BaseModel{
+public class AppointmentDTO extends BaseModel {
     private Date date;
     private MedicalStaffDTO medicalStaffDTO;
     private PatientDTO patientDTO;

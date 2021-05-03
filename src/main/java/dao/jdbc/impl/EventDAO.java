@@ -1,7 +1,7 @@
 package dao.jdbc.impl;
 
 import dao.connections.DBConnection;
-import dao.domain.EventDTO;
+import dao.domain.misc.EventDTO;
 import dao.interfaces.IEventDAO;
 import org.apache.log4j.Logger;
 

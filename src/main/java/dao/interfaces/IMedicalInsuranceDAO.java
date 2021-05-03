@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import dao.domain.MedicalInsuranceDTO;
+import dao.domain.misc.MedicalInsuranceDTO;
 
 public interface IMedicalInsuranceDAO extends IEntityDAO<MedicalInsuranceDTO>{
 

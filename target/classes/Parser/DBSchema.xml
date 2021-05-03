@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Hospital>
+    <Patients>
+        <Patient>
+            <name>Alan</name>
+            <last_name>Kalbermatter</last_name>
+            <symptom>Fever</symptom>
+        </Patient>
+    </Patients>
+    <MedicalStaff>
+        <name>Alfredo</name>
+        <specialty>Cardiology surgeon</specialty>
+    </MedicalStaff>
+
+</Hospital>

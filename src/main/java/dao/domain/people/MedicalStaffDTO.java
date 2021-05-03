@@ -1,6 +1,11 @@
-package dao.domain;
+package dao.domain.people;
 
-public class MedicalStaffDTO extends BaseModel{
+import dao.domain.BaseModel;
+import dao.domain.misc.PositionDTO;
+
+import java.util.Objects;
+
+public class MedicalStaffDTO extends BaseModel {
     private String name;
     private String specialty;
     private PositionDTO positionDTO;
@@ -44,5 +49,18 @@ public class MedicalStaffDTO extends BaseModel{
                 ", specialty='" + specialty + '\'' +
                 ", position=" + positionDTO +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MedicalStaffDTO)) return false;
+        MedicalStaffDTO that = (MedicalStaffDTO) o;
+        return Objects.equals(getName(), that.getName()) && Objects.equals(getSpecialty(), that.getSpecialty()) && positionDTO == that.positionDTO;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getSpecialty(), positionDTO);
     }
 }

@@ -1,7 +1,7 @@
 package dao.jdbc.impl;
 
 import dao.connections.DBConnection;
-import dao.domain.MedicalChartDTO;
+import dao.domain.misc.MedicalChartDTO;
 import dao.interfaces.IMedicalChartDAO;
 import org.apache.log4j.Logger;
 
