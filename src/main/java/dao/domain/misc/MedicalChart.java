@@ -2,12 +2,12 @@ package dao.domain.misc;
 
 import dao.domain.BaseModel;
 
-public class MedicalChartDTO extends BaseModel {
+public class MedicalChart extends BaseModel {
     private String history;
 
-    public MedicalChartDTO(){}
+    public MedicalChart(){}
 
-    public MedicalChartDTO(String history){
+    public MedicalChart(String history){
         this.history = history;
     }
 

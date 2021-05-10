@@ -5,9 +5,12 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.log4j.Logger;
 
 import javax.sql.DataSource;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class DBConnection {
+public class PoolConnection {
 
     private static final Logger logger = Logger.getLogger(MainJDBC.class);
 
@@ -16,13 +19,13 @@ public class DBConnection {
     private static final String JDBC_PASS = "root";
     private static BasicDataSource dataSource;
 
-    public static DataSource getDataSource(){
+    public static DataSource getDataSource() {
         if (dataSource == null) {
             dataSource = new BasicDataSource();
             dataSource.setUrl(JDBC_URL);
             dataSource.setUsername(JDBC_USER);
             dataSource.setPassword(JDBC_PASS);
-            dataSource.setInitialSize(5);
+            dataSource.setInitialSize(50);
         }
         return dataSource;
     }

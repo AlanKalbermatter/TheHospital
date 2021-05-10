@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import dao.domain.drugs.MedicineDTO;
+import dao.domain.drugs.Medicine;
 
-public interface IMedicineDAO extends IEntityDAO<MedicineDTO>{
+public interface IMedicineDAO extends IEntityDAO<Medicine>{
 }

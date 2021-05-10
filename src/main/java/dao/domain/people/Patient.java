@@ -1,14 +1,14 @@
 package dao.domain.people;
 
-public class PatientDTO {
+public class Patient {
     private long id;
     private String name;
     private String lastName;
     private String symptom;
 
-    public PatientDTO(){}
+    public Patient(){}
 
-    public PatientDTO(String name, String lastName, String symptom){
+    public Patient(String name, String lastName, String symptom){
         this.name = name;
         this.lastName = name;
         this.symptom = symptom;

@@ -1,21 +1,21 @@
 package dao.domain.people;
 
 import dao.domain.BaseModel;
-import dao.domain.misc.PositionDTO;
+import dao.domain.misc.Position;
 
 import java.util.Objects;
 
-public class MedicalStaffDTO extends BaseModel {
+public class MedicalStaff extends BaseModel {
     private String name;
     private String specialty;
-    private PositionDTO positionDTO;
+    private Position position;
 
-    public MedicalStaffDTO(){}
+    public MedicalStaff(){}
 
-    public MedicalStaffDTO(String name, String specialty, PositionDTO positionDTO){
+    public MedicalStaff(String name, String specialty, Position position){
         this.name = name;
         this.specialty = specialty;
-        this.positionDTO = positionDTO;
+        this.position = position;
     }
 
     public String getName() {
@@ -34,12 +34,12 @@ public class MedicalStaffDTO extends BaseModel {
         this.specialty = specialty;
     }
 
-    public PositionDTO getPosition() {
-        return positionDTO;
+    public Position getPosition() {
+        return position;
     }
 
-    public void setPosition(PositionDTO positionDTO) {
-        this.positionDTO = positionDTO;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     @Override
@@ -47,20 +47,20 @@ public class MedicalStaffDTO extends BaseModel {
         return "MedicalStaff{" +
                 "name='" + name + '\'' +
                 ", specialty='" + specialty + '\'' +
-                ", position=" + positionDTO +
+                ", position=" + position +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof MedicalStaffDTO)) return false;
-        MedicalStaffDTO that = (MedicalStaffDTO) o;
-        return Objects.equals(getName(), that.getName()) && Objects.equals(getSpecialty(), that.getSpecialty()) && positionDTO == that.positionDTO;
+        if (!(o instanceof MedicalStaff)) return false;
+        MedicalStaff that = (MedicalStaff) o;
+        return Objects.equals(getName(), that.getName()) && Objects.equals(getSpecialty(), that.getSpecialty()) && position == that.position;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSpecialty(), positionDTO);
+        return Objects.hash(getName(), getSpecialty(), position);
     }
 }

@@ -1,12 +1,12 @@
 package dao.domain.drugs;
 
-public class MedicineDTO {
+public class Medicine {
     private String name;
     private double price;
 
-    public MedicineDTO(){}
+    public Medicine(){}
 
-    public MedicineDTO(String name){
+    public Medicine(String name){
         this.name = name;
     }
 

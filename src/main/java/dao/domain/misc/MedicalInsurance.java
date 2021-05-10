@@ -2,13 +2,13 @@ package dao.domain.misc;
 
 import dao.domain.BaseModel;
 
-public class MedicalInsuranceDTO extends BaseModel {
+public class MedicalInsurance extends BaseModel {
     private String partnerName;
     private int ssn;
 
-    public MedicalInsuranceDTO(){}
+    public MedicalInsurance(){}
 
-    public MedicalInsuranceDTO(String partnerName, int ssn){
+    public MedicalInsurance(String partnerName, int ssn){
         this.partnerName = partnerName;
         this.ssn = ssn;
     }

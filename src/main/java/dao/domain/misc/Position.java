@@ -1,6 +1,6 @@
 package dao.domain.misc;
 
-public enum PositionDTO {
+public enum Position {
     NURSE("Nurse"),
     DOCTOR("Doctor"),
     PEDIATRICIAN("Pediatrician"),
@@ -8,9 +8,9 @@ public enum PositionDTO {
 
     private String positionName;
 
-    PositionDTO(){}
+    Position(){}
 
-    PositionDTO(String positionName){
+    Position(String positionName){
         this.positionName = positionName;
     }
 

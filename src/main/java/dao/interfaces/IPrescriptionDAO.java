@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import dao.domain.misc.PrescriptionDTO;
+import dao.domain.misc.Prescription;
 
-public interface IPrescriptionDAO extends IEntityDAO<PrescriptionDTO> {
+public interface IPrescriptionDAO extends IEntityDAO<Prescription> {
 }

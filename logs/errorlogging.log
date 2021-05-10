@@ -1,17 +1,21 @@
 2021-04-18 21:00:26 ERROR Main:31 - exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
 2021-04-18 21:44:44 ERROR Main:35 - exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
 2021-04-18 23:41:54 ERROR Main:38 - com.solvd.hospital.exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
-2021-04-18 23:41:54 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patientDTO hasn't got Medical History
+2021-04-18 23:41:54 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patient hasn't got Medical History
 2021-04-18 23:42:24 ERROR Main:38 - com.solvd.hospital.exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
-2021-04-18 23:42:24 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patientDTO hasn't got Medical History
+2021-04-18 23:42:24 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patient hasn't got Medical History
 2021-04-19 00:03:11 ERROR Main:39 - Doctor Deniro not surgeon
-2021-04-19 00:03:11 ERROR Main:45 - This patientDTO hasn't got Medical History
-2021-04-19 00:03:11 ERROR Main:61 - Nurse only can support operationDTO
+2021-04-19 00:03:11 ERROR Main:45 - This patient hasn't got Medical History
+2021-04-19 00:03:11 ERROR Main:61 - Nurse only can support operation
 2021-04-19 00:14:13 ERROR Main:40 - Doctor Deniro not surgeon
-2021-04-19 00:14:13 ERROR Main:46 - This patientDTO hasn't got Medical History
-2021-04-19 00:14:13 ERROR Main:62 - Nurse only can support operationDTO
+2021-04-19 00:14:13 ERROR Main:46 - This patient hasn't got Medical History
+2021-04-19 00:14:13 ERROR Main:62 - Nurse only can support operation
 2021-04-19 00:14:54 ERROR Main:40 - Doctor Deniro not surgeon
-2021-04-19 00:14:54 ERROR Main:46 - This patientDTO hasn't got Medical History
-2021-04-19 00:14:54 ERROR Main:62 - Nurse only can support operationDTO
+2021-04-19 00:14:54 ERROR Main:46 - This patient hasn't got Medical History
+2021-04-19 00:14:54 ERROR Main:62 - Nurse only can support operation
 2021-05-02 23:38:53 ERROR XMLParser:45 - /home/kalber/workspace/HospitalModelWithMvn/DBSchema.xml (No such file or directory)
 2021-05-02 23:40:05 ERROR XMLParser:47 - A pseudo attribute name is expected. 
+2021-05-04 11:57:47 ERROR MainJDBC:20 - Cannot create PoolableConnectionFactory (Unknown database 'Hospital')
+2021-05-04 11:59:07 ERROR MainJDBC:20 - Cannot create PoolableConnectionFactory (Unknown database 'Hospital.mydb')
+2021-05-04 12:01:43 ERROR MainJDBC:27 - Cannot create PoolableConnectionFactory (Unknown database 'Hospital.mydb')
+2021-05-04 12:03:23 ERROR MainJDBC:21 - Cannot create PoolableConnectionFactory (Unknown database 'Hospital')

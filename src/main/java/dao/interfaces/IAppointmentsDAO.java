@@ -1,7 +1,7 @@
 package dao.interfaces;
 
-import dao.domain.misc.AppointmentDTO;
+import dao.domain.misc.Appointment;
 
-public interface IAppointmentsDAO extends IEntityDAO<AppointmentDTO>{
+public interface IAppointmentsDAO extends IEntityDAO<Appointment>{
 
 }

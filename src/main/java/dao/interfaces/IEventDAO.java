@@ -1,8 +1,8 @@
 package dao.interfaces;
 
-import dao.domain.misc.EventDTO;
+import dao.domain.misc.Event;
 
-public interface IEventDAO extends IEntityDAO<EventDTO>{
+public interface IEventDAO extends IEntityDAO<Event>{
 
 }
 

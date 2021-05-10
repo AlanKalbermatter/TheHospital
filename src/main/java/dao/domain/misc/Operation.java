@@ -1,25 +1,18 @@
 package dao.domain.misc;
 
+import dao.domain.BaseModel;
+
 import java.sql.Date;
 
-public class OperationDTO {
-    private long id;
+public class Operation extends BaseModel {
     private Date date;
     private String reason;
 
-    public OperationDTO(){}
+    public Operation(){}
 
-    public OperationDTO(Date date, String reason){
+    public Operation(Date date, String reason){
         this.date = date;
         this.reason = reason;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Date getDate() {
@@ -41,7 +34,6 @@ public class OperationDTO {
     @Override
     public String toString() {
         return "Operation{" +
-                "id=" + id +
                 ", date=" + date +
                 ", reason='" + reason + '\'' +
                 '}';

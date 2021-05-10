@@ -1,17 +1,17 @@
 package dao.domain.misc;
 
 import dao.domain.BaseModel;
-import dao.domain.people.PatientDTO;
+import dao.domain.people.Patient;
 
-public class BedDTO extends BaseModel {
+public class Bed extends BaseModel {
     private int roomNumber;
-    private PatientDTO patientDTO;
+    private Patient patient;
 
-    public BedDTO(){}
+    public Bed(){}
 
-    public BedDTO(int roomNumber, PatientDTO patientDTO){
+    public Bed(int roomNumber, Patient patient){
         this.roomNumber = roomNumber;
-        this.patientDTO = patientDTO;
+        this.patient = patient;
     }
 
     public int getRoomNumber() {
@@ -22,19 +22,19 @@ public class BedDTO extends BaseModel {
         this.roomNumber = roomNumber;
     }
 
-    public PatientDTO getPatient() {
-        return patientDTO;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatient(PatientDTO patientDTO) {
-        this.patientDTO = patientDTO;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     @Override
     public String toString() {
         return "Bed{" +
                 "roomNumber=" + roomNumber +
-                ", patient=" + patientDTO +
+                ", patient=" + patient +
                 '}';
     }
 }

@@ -1,7 +1,7 @@
 package dao.jdbc.impl;
 
-import dao.connections.DBConnection;
-import dao.domain.people.MedicalStaffDTO;
+import dao.connections.PoolConnection;
+import dao.domain.people.MedicalStaff;
 import dao.interfaces.IMedicalStaffDAO;
 import org.apache.log4j.Logger;
 
@@ -13,8 +13,6 @@ import java.sql.SQLException;
 public class MedicalStaffDAO extends AbstractJdbcDAO implements IMedicalStaffDAO {
     private static final Logger logger = Logger.getLogger(MedicalStaffDAO.class);
 
-    private Connection conn;
-
     private final static String SQL_INSERT =    "INSERT INTO Medical_staff(name, specialty) VALUES(?, ?)";
     private final static String SQL_UPDATE =    "UPDATE Medical_staff SET name=?, specialty=? WHERE id = ?";
     private final static String SQL_GET_BY_ID = "SELECT * FROM Medical_staff WHERE id = ?";
@@ -22,23 +20,18 @@ public class MedicalStaffDAO extends AbstractJdbcDAO implements IMedicalStaffDAO
 
     public MedicalStaffDAO(){}
 
-    public MedicalStaffDAO(DBConnection conn) throws SQLException {
-        this.conn = conn.getConnection();
-    }
-
-
     @Override
-    public void save(MedicalStaffDTO ms) throws SQLException {
+    public void save(MedicalStaff ms) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            conn = DBConnection.getConnection();
+            conn = PoolConnection.getConnection();
             ps = conn.prepareStatement(SQL_INSERT);
             ps.setString(1, ms.getName());
             ps.setString(1, ms.getSpecialty());
             logger.debug("Query been executed " + SQL_INSERT);
             ps.executeUpdate();
-        }finally{
+        } finally{
             if(conn != null)
                 conn.close();
             if(ps != null)
@@ -47,11 +40,11 @@ public class MedicalStaffDAO extends AbstractJdbcDAO implements IMedicalStaffDAO
     }
 
     @Override
-    public void update(MedicalStaffDTO ms) throws SQLException{
+    public void update(MedicalStaff ms) throws SQLException{
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            conn = DBConnection.getConnection();
+            conn = PoolConnection.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE);
             ps.setString(1, ms.getName());
             ps.setString(2, ms.getSpecialty());
@@ -60,7 +53,7 @@ public class MedicalStaffDAO extends AbstractJdbcDAO implements IMedicalStaffDAO
             logger.debug("Query been executed " + SQL_UPDATE);
             ps.executeUpdate();
             logger.info("The medical staff "+ ms.toString() + " has been updated");
-        }finally{
+        } finally{
             if(conn != null)
                 conn.close();
             if(ps != null)
@@ -69,25 +62,25 @@ public class MedicalStaffDAO extends AbstractJdbcDAO implements IMedicalStaffDAO
     }
 
     @Override
-    public MedicalStaffDTO getById(long id) throws SQLException {
+    public MedicalStaff getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        MedicalStaffDTO ms;
+        MedicalStaff ms = null;
 
         try {
-            conn = DBConnection.getConnection();
+            conn = PoolConnection.getConnection();
             ps = conn.prepareStatement(SQL_GET_BY_ID);
             logger.debug("Query been executed " + SQL_GET_BY_ID);
             rs = ps.executeQuery();
 
-            ms = new MedicalStaffDTO();
+            ms = new MedicalStaff();
             ms.setId(rs.getLong("id"));
             ms.setName(rs.getString("name"));
             ms.setSpecialty(rs.getString("specialty"));
 
             logger.info(ms.toString());
-        }finally{
+        } finally{
             if(conn != null)
                 conn.close();
             if (ps != null)
@@ -100,12 +93,12 @@ public class MedicalStaffDAO extends AbstractJdbcDAO implements IMedicalStaffDAO
         return ms;
     }
     @Override
-    public void delete(MedicalStaffDTO ms) throws SQLException{
+    public void delete(MedicalStaff ms) throws SQLException{
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
 
         try {
-            conn = DBConnection.getConnection();
+            conn = PoolConnection.getConnection();
             ps = conn.prepareStatement(SQL_DELETE);
             logger.debug("Query been executed " + SQL_DELETE);
 

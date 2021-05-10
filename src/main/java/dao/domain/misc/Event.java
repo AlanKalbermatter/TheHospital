@@ -2,12 +2,12 @@ package dao.domain.misc;
 
 import dao.domain.BaseModel;
 
-public class EventDTO extends BaseModel {
+public class Event extends BaseModel {
     private String reason;
 
-    public EventDTO(){}
+    public Event(){}
 
-    public EventDTO(String reason){
+    public Event(String reason){
         this.reason = reason;
     }
 

@@ -58,7 +58,7 @@
 2021-04-18 21:44:44 INFO  MedicineContainer:134 - 20
 2021-04-18 21:44:44 INFO  MedicineContainer:137 - 10
 2021-04-18 23:41:54 ERROR Main:38 - com.solvd.hospital.exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
-2021-04-18 23:41:54 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patientDTO hasn't got Medical History
+2021-04-18 23:41:54 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patient hasn't got Medical History
 2021-04-18 23:41:54 INFO  Main:100 - Number of actual patients in the hospital is: 3
 2021-04-18 23:41:54 INFO  MedicineContainer:122 - 10
 2021-04-18 23:41:54 INFO  MedicineContainer:122 - 20
@@ -69,7 +69,7 @@
 2021-04-18 23:41:54 INFO  MedicineContainer:134 - 20
 2021-04-18 23:41:54 INFO  MedicineContainer:137 - 10
 2021-04-18 23:42:24 ERROR Main:38 - com.solvd.hospital.exceptions.InvalidDoctorSpecialty: Doctor Deniro not surgeon
-2021-04-18 23:42:24 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patientDTO hasn't got Medical History
+2021-04-18 23:42:24 ERROR Main:44 - com.solvd.hospital.exceptions.NullMedicalHistorySheetException: This patient hasn't got Medical History
 2021-04-18 23:42:24 INFO  Main:100 - Number of actual patients in the hospital is: 3
 2021-04-18 23:42:24 INFO  MedicineContainer:122 - 10
 2021-04-18 23:42:24 INFO  MedicineContainer:122 - 20
@@ -80,8 +80,8 @@
 2021-04-18 23:42:24 INFO  MedicineContainer:134 - 20
 2021-04-18 23:42:24 INFO  MedicineContainer:137 - 10
 2021-04-19 00:03:11 ERROR Main:39 - Doctor Deniro not surgeon
-2021-04-19 00:03:11 ERROR Main:45 - This patientDTO hasn't got Medical History
-2021-04-19 00:03:11 ERROR Main:61 - Nurse only can support operationDTO
+2021-04-19 00:03:11 ERROR Main:45 - This patient hasn't got Medical History
+2021-04-19 00:03:11 ERROR Main:61 - Nurse only can support operation
 2021-04-19 00:03:11 INFO  Main:102 - Number of actual patients in the hospital is: 3
 2021-04-19 00:03:11 INFO  MedicineContainer:122 - 10
 2021-04-19 00:03:11 INFO  MedicineContainer:122 - 20
@@ -92,8 +92,8 @@
 2021-04-19 00:03:11 INFO  MedicineContainer:134 - 20
 2021-04-19 00:03:11 INFO  MedicineContainer:137 - 10
 2021-04-19 00:14:13 ERROR Main:40 - Doctor Deniro not surgeon
-2021-04-19 00:14:13 ERROR Main:46 - This patientDTO hasn't got Medical History
-2021-04-19 00:14:13 ERROR Main:62 - Nurse only can support operationDTO
+2021-04-19 00:14:13 ERROR Main:46 - This patient hasn't got Medical History
+2021-04-19 00:14:13 ERROR Main:62 - Nurse only can support operation
 2021-04-19 00:14:13 INFO  Main:104 - com.solvd.hospital.generics.Appointment@6e2c634b
 2021-04-19 00:14:13 INFO  Main:108 - Number of actual patients in the hospital is: 3
 2021-04-19 00:14:13 INFO  MedicineContainer:122 - 10
@@ -105,9 +105,9 @@
 2021-04-19 00:14:13 INFO  MedicineContainer:134 - 20
 2021-04-19 00:14:13 INFO  MedicineContainer:137 - 10
 2021-04-19 00:14:54 ERROR Main:40 - Doctor Deniro not surgeon
-2021-04-19 00:14:54 ERROR Main:46 - This patientDTO hasn't got Medical History
-2021-04-19 00:14:54 ERROR Main:62 - Nurse only can support operationDTO
-2021-04-19 00:14:54 INFO  Main:104 - Appointment{doctor=Zambone, patientDTO=Johnson, date=Tue Jun 01 00:14:54 ART 2021}
+2021-04-19 00:14:54 ERROR Main:46 - This patient hasn't got Medical History
+2021-04-19 00:14:54 ERROR Main:62 - Nurse only can support operation
+2021-04-19 00:14:54 INFO  Main:104 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 00:14:54 ART 2021}
 2021-04-19 00:14:54 INFO  Main:108 - Number of actual patients in the hospital is: 3
 2021-04-19 00:14:54 INFO  MedicineContainer:122 - 10
 2021-04-19 00:14:54 INFO  MedicineContainer:122 - 20
@@ -118,9 +118,9 @@
 2021-04-19 00:14:54 INFO  MedicineContainer:134 - 20
 2021-04-19 00:14:54 INFO  MedicineContainer:137 - 10
 2021-04-19 13:24:50 ERROR Main:41 - Doctor Deniro not surgeon
-2021-04-19 13:24:50 ERROR Main:47 - This patientDTO hasn't got Medical History
-2021-04-19 13:24:50 ERROR Main:63 - Nurse only can support operationDTO
-2021-04-19 13:24:50 INFO  Main:105 - Appointment{doctor=Zambone, patientDTO=Johnson, date=Tue Jun 01 13:24:50 ART 2021}
+2021-04-19 13:24:50 ERROR Main:47 - This patient hasn't got Medical History
+2021-04-19 13:24:50 ERROR Main:63 - Nurse only can support operation
+2021-04-19 13:24:50 INFO  Main:105 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 13:24:50 ART 2021}
 2021-04-19 13:24:50 INFO  Main:109 - Number of actual patients in the hospital is: 3
 2021-04-19 13:24:50 INFO  MedicineDoublyList:122 - 10
 2021-04-19 13:24:50 INFO  MedicineDoublyList:122 - 20
@@ -131,9 +131,9 @@
 2021-04-19 13:24:50 INFO  MedicineDoublyList:134 - 20
 2021-04-19 13:24:50 INFO  MedicineDoublyList:137 - 10
 2021-04-20 07:26:56 ERROR Main:38 - Doctor Deniro not surgeon
-2021-04-20 07:26:56 ERROR Main:44 - This patientDTO hasn't got Medical History
-2021-04-20 07:26:56 ERROR Main:60 - Nurse only can support operationDTO
-2021-04-20 07:26:56 INFO  Main:102 - Appointment{doctor=Zambone, patientDTO=Johnson, date=Tue Jun 01 07:26:56 ART 2021}
+2021-04-20 07:26:56 ERROR Main:44 - This patient hasn't got Medical History
+2021-04-20 07:26:56 ERROR Main:60 - Nurse only can support operation
+2021-04-20 07:26:56 INFO  Main:102 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 07:26:56 ART 2021}
 2021-04-20 07:26:56 INFO  Main:106 - Number of actual patients in the hospital is: 3
 2021-04-20 07:26:56 INFO  MedicineDoublyList:122 - 10
 2021-04-20 07:26:56 INFO  MedicineDoublyList:122 - 20
@@ -144,9 +144,9 @@
 2021-04-20 07:26:56 INFO  MedicineDoublyList:134 - 20
 2021-04-20 07:26:56 INFO  MedicineDoublyList:137 - 10
 2021-04-20 07:35:43 ERROR Main:37 - Doctor Deniro not surgeon
-2021-04-20 07:35:43 ERROR Main:43 - This patientDTO hasn't got Medical History
-2021-04-20 07:35:43 ERROR Main:59 - Nurse only can support operationDTO
-2021-04-20 07:35:43 INFO  Main:101 - Appointment{doctor=Zambone, patientDTO=Johnson, date=Tue Jun 01 07:35:43 ART 2021}
+2021-04-20 07:35:43 ERROR Main:43 - This patient hasn't got Medical History
+2021-04-20 07:35:43 ERROR Main:59 - Nurse only can support operation
+2021-04-20 07:35:43 INFO  Main:101 - Appointment{doctor=Zambone, patient=Johnson, date=Tue Jun 01 07:35:43 ART 2021}
 2021-04-20 07:35:43 INFO  Main:105 - Number of actual patients in the hospital is: 3
 2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 0
 2021-04-28 09:31:14 INFO  MedicineDoublyList:26 - 1
@@ -175,3 +175,11 @@
 2021-05-02 23:41:03 INFO  XMLParser:37 - Patient : name - Alan
 2021-05-02 23:41:03 INFO  XMLParser:37 - Patient : last_name - Kalbermatter
 2021-05-02 23:41:03 INFO  XMLParser:37 - Patient : symptom - Fever
+2021-05-04 11:55:13 INFO  XMLParser:37 - Patient : name - Alan
+2021-05-04 11:55:13 INFO  XMLParser:37 - Patient : last_name - Kalbermatter
+2021-05-04 11:55:13 INFO  XMLParser:37 - Patient : symptom - Fever
+2021-05-04 11:57:47 ERROR MainJDBC:20 - Cannot create PoolableConnectionFactory (Unknown database 'Hospital')
+2021-05-04 11:59:07 ERROR MainJDBC:20 - Cannot create PoolableConnectionFactory (Unknown database 'Hospital.mydb')
+2021-05-04 12:01:43 ERROR MainJDBC:27 - Cannot create PoolableConnectionFactory (Unknown database 'Hospital.mydb')
+2021-05-04 12:03:23 ERROR MainJDBC:21 - Cannot create PoolableConnectionFactory (Unknown database 'Hospital')
+2021-05-09 22:32:30 INFO  MainJDBC:19 - 1263877414, URL=jdbc:mysql://localhost:3306/mydb?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true, UserName=root@localhost, MySQL Connector/J

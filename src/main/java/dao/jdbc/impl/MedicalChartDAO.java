@@ -1,7 +1,7 @@
 package dao.jdbc.impl;
 
-import dao.connections.DBConnection;
-import dao.domain.misc.MedicalChartDTO;
+import dao.connections.PoolConnection;
+import dao.domain.misc.MedicalChart;
 import dao.interfaces.IMedicalChartDAO;
 import org.apache.log4j.Logger;
 
@@ -12,8 +12,6 @@ import java.sql.SQLException;
 public class MedicalChartDAO extends AbstractJdbcDAO implements IMedicalChartDAO {
     private static final Logger logger = Logger.getLogger(MedicalChartDAO.class);
 
-    private DBConnection conn;
-
     private final static String SQL_INSERT =    "INSERT INTO Medical_charts(history) VALUES(?)";
     private final static String SQL_UPDATE =    "UPDATE Medical_charts SET history=? WHERE id = ?";
     private final static String SQL_GET_BY_ID = "SELECT * FROM Medical_charts WHERE id = ?";
@@ -21,22 +19,18 @@ public class MedicalChartDAO extends AbstractJdbcDAO implements IMedicalChartDAO
 
     public MedicalChartDAO() {}
 
-    public MedicalChartDAO(DBConnection conn){
-        this.conn = conn;
-    }
-
     @Override
-    public void save(MedicalChartDTO mc) throws SQLException {
+    public void save(MedicalChart mc) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         try {
-            conn = DBConnection.getConnection();
+            conn = PoolConnection.getConnection();
             ps = conn.prepareStatement(SQL_INSERT);
             ps.setString(1, mc.getHistory());
 
             logger.debug("Query been executed " + SQL_INSERT);
             ps.executeUpdate();
-        }finally{
+        } finally{
             if(conn != null)
                 conn.close();
             if(ps != null)
@@ -45,11 +39,11 @@ public class MedicalChartDAO extends AbstractJdbcDAO implements IMedicalChartDAO
     }
 
     @Override
-    public void update(MedicalChartDTO mc) throws SQLException{
+    public void update(MedicalChart mc) throws SQLException{
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         try {
-            conn = DBConnection.getConnection();
+            conn = PoolConnection.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE);
             ps.setString(1, mc.getHistory());
             ps.setLong(2, mc.getId());
@@ -57,7 +51,7 @@ public class MedicalChartDAO extends AbstractJdbcDAO implements IMedicalChartDAO
             logger.info("The Medical chart " + mc.toString() + " has been updated");
             logger.debug("Query been executed " + SQL_UPDATE);
             ps.executeUpdate();
-        }finally{
+        } finally{
             if(conn != null)
                 conn.close();
             if(ps != null)
@@ -66,24 +60,24 @@ public class MedicalChartDAO extends AbstractJdbcDAO implements IMedicalChartDAO
     }
 
     @Override
-    public MedicalChartDTO getById(long id) throws SQLException {
+    public MedicalChart getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        MedicalChartDTO mc;
+        MedicalChart mc = null;
 
         try {
-            conn = DBConnection.getConnection();
+            conn = PoolConnection.getConnection();
             ps = conn.prepareStatement(SQL_GET_BY_ID);
             logger.debug("Query been executed " + SQL_GET_BY_ID);
             rs = ps.executeQuery();
 
-            mc = new MedicalChartDTO();
+            mc = new MedicalChart();
             mc.setId(rs.getLong("id"));
             mc.setHistory(rs.getString("history"));
 
             logger.info(mc.toString());
-        }finally{
+        } finally{
             if (conn != null)
                 conn.close();
             if (ps != null)
@@ -96,12 +90,12 @@ public class MedicalChartDAO extends AbstractJdbcDAO implements IMedicalChartDAO
         return mc;
     }
     @Override
-    public void delete(MedicalChartDTO mc) throws SQLException{
+    public void delete(MedicalChart mc) throws SQLException{
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
 
         try {
-            conn = DBConnection.getConnection();
+            conn = PoolConnection.getConnection();
             ps = conn.prepareStatement(SQL_DELETE);
             logger.debug("Query been executed " + SQL_DELETE);
 

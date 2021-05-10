@@ -48,3 +48,4 @@ LEFT JOIN
     ON p.id = m.prescription_id
 GROUP BY p.id;
 
+

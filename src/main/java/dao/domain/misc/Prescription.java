@@ -2,13 +2,13 @@ package dao.domain.misc;
 
 import dao.domain.BaseModel;
 
-public class PrescriptionDTO extends BaseModel {
+public class Prescription extends BaseModel {
 
     private String details;
 
-    public PrescriptionDTO() {}
+    public Prescription() {}
 
-    public PrescriptionDTO(String details){
+    public Prescription(String details){
         this.details = details;
     }
 
