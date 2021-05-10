@@ -8,3 +8,4 @@
 /logs
 HospitalDER.mwb
 HospitalDER.mwb.bak
+*.plantuml

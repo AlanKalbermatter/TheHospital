@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlElement;
 public class Bed extends BaseModel{
     @XmlElement(name = "name")
     private int roomNumber;
-
+    @XmlElement(name = "patient")
     private Patient patient;
 
     public Bed(){}
