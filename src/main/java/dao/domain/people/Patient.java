@@ -1,7 +1,6 @@
 package dao.domain.people;
 
 public class Patient {
-    private long id;
     private String name;
     private String lastName;
     private String symptom;
@@ -12,14 +11,6 @@ public class Patient {
         this.name = name;
         this.lastName = name;
         this.symptom = symptom;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {

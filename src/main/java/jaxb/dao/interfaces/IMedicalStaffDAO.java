@@ -1,4 +1,6 @@
 package jaxb.dao.interfaces;
 
-public interface IMedicalStaffDAO {
+import jaxb.model.MedicalStaff;
+
+public interface IMedicalStaffDAO extends IEntityDAO<MedicalStaff> {
 }

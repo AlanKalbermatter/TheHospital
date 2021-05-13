@@ -1,4 +1,6 @@
 package jaxb.dao.interfaces;
 
-public interface IEventDAO {
+import jaxb.model.Event;
+
+public interface IEventDAO extends IEntityDAO<Event>{
 }

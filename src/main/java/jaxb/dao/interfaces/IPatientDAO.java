@@ -1,4 +1,6 @@
 package jaxb.dao.interfaces;
 
-public interface IPatientDAO {
+import jaxb.model.Patient;
+
+public interface IPatientDAO extends IEntityDAO<Patient>{
 }
