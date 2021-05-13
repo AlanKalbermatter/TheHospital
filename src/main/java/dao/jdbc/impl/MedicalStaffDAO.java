@@ -62,7 +62,7 @@ public class MedicalStaffDAO extends AbstractJdbcDAO implements IMedicalStaffDAO
     }
 
     @Override
-    public MedicalStaff getById(long id) throws SQLException {
+    public jaxb.model.MedicalStaff getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

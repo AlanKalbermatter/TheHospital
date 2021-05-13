@@ -3,6 +3,7 @@ package dao.jdbc.impl;
 import dao.connections.PoolConnection;
 import dao.domain.misc.Bed;
 import dao.interfaces.IBedDAO;
+import jaxb.model.MedicalStaff;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -61,7 +62,7 @@ public class BedDAO extends AbstractJdbcDAO implements IBedDAO {
     }
 
     @Override
-    public Bed getById(long id) throws SQLException {
+    public MedicalStaff getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

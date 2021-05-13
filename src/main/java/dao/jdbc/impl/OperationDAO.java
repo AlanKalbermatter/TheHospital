@@ -3,6 +3,7 @@ package dao.jdbc.impl;
 import dao.connections.PoolConnection;
 import dao.domain.misc.Operation;
 import dao.interfaces.IOperationDAO;
+import jaxb.model.MedicalStaff;
 import org.apache.log4j.Logger;
 
 import java.sql.PreparedStatement;
@@ -62,7 +63,7 @@ public class OperationDAO extends AbstractJdbcDAO implements IOperationDAO{
     }
 
     @Override
-    public Operation getById(long id) throws SQLException {
+    public MedicalStaff getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

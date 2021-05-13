@@ -3,6 +3,7 @@ package dao.jdbc.impl;
 import dao.connections.PoolConnection;
 import dao.domain.misc.Event;
 import dao.interfaces.IEventDAO;
+import jaxb.model.MedicalStaff;
 import org.apache.log4j.Logger;
 
 import java.sql.PreparedStatement;
@@ -61,7 +62,7 @@ public class EventDAO extends AbstractJdbcDAO implements IEventDAO {
     }
 
     @Override
-    public Event getById(long id) throws SQLException {
+    public MedicalStaff getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

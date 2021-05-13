@@ -3,6 +3,7 @@ package dao.jdbc.impl;
 import dao.connections.PoolConnection;
 import dao.domain.misc.MedicalChart;
 import dao.interfaces.IMedicalChartDAO;
+import jaxb.model.MedicalStaff;
 import org.apache.log4j.Logger;
 
 import java.sql.PreparedStatement;
@@ -60,7 +61,7 @@ public class MedicalChartDAO extends AbstractJdbcDAO implements IMedicalChartDAO
     }
 
     @Override
-    public MedicalChart getById(long id) throws SQLException {
+    public MedicalStaff getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

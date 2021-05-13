@@ -1,7 +1,8 @@
 package jaxb.dao.realization;
 
-import dao.domain.people.MedicalStaff;
-import dao.interfaces.IMedicalStaffDAO;
+
+import jaxb.dao.interfaces.IMedicalStaffDAO;
+import jaxb.model.MedicalStaff;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -11,7 +12,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
 import java.io.File;
-import java.sql.SQLException;
 import java.util.List;
 
 public class MedicalStaffDAO implements IMedicalStaffDAO {
@@ -21,14 +21,14 @@ public class MedicalStaffDAO implements IMedicalStaffDAO {
     private List<MedicalStaff> medicalStaff = null;
 
     @Override
-    public void save(MedicalStaff entity) throws SQLException {
+    public void save(MedicalStaff entity) {
         medicalStaff = unmarshall();
         medicalStaff.add(entity);
         marshall(this);
     }
 
     @Override
-    public MedicalStaff getById(long id) throws SQLException {
+    public MedicalStaff getById(long id) {
         medicalStaff = unmarshall();
         return medicalStaff.stream()
                 .filter(element -> element.getId() == id)
@@ -37,7 +37,7 @@ public class MedicalStaffDAO implements IMedicalStaffDAO {
     }
 
     @Override
-    public void update(MedicalStaff entity) throws SQLException {
+    public void update(MedicalStaff entity) {
         medicalStaff = unmarshall();
         medicalStaff.stream()
                 .filter(element -> element.getId() == entity.getId())
@@ -51,7 +51,7 @@ public class MedicalStaffDAO implements IMedicalStaffDAO {
     }
 
     @Override
-    public void delete(MedicalStaff entity) throws SQLException {
+    public void delete(MedicalStaff entity){
         medicalStaff = unmarshall();
         medicalStaff.stream()
                 .filter(element -> element.getId() == entity.getId())

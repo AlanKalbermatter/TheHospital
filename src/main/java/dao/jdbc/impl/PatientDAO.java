@@ -3,6 +3,7 @@ package dao.jdbc.impl;
 import dao.connections.PoolConnection;
 import dao.domain.people.Patient;
 import dao.interfaces.IPatientDAO;
+import jaxb.model.MedicalStaff;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -65,7 +66,7 @@ public class PatientDAO extends AbstractJdbcDAO implements IPatientDAO{
     }
 
     @Override
-    public Patient getById(long id) throws SQLException {
+    public MedicalStaff getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

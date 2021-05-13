@@ -3,6 +3,7 @@ package dao.jdbc.impl;
 import dao.connections.PoolConnection;
 import dao.domain.misc.MedicalInsurance;
 import dao.interfaces.IMedicalInsuranceDAO;
+import jaxb.model.MedicalStaff;
 import org.apache.log4j.Logger;
 
 import java.sql.PreparedStatement;
@@ -61,7 +62,7 @@ public class MedicalInsuranceDAO extends AbstractJdbcDAO implements IMedicalInsu
     }
 
     @Override
-    public MedicalInsurance getById(long id) throws SQLException {
+    public MedicalStaff getById(long id) throws SQLException {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
